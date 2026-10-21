@@ -1,0 +1,6 @@
+[
+{"id":"FORGIA","name":"Forgia runica","text":"Come costruire la Forgia runica: il banco dove si lavorano mithril e scaglie di drago.","where":"Nei forzieri delle cripte e dai guardiani della palude."},
+{"id":"MITHRIL","name":"Lavorazione del mithril","text":"Come fondere i detriti antichi e forgiare armi e armature di mithril.","where":"Nei forzieri delle cripte e delle roccaforti, e dai guardiani delle ossa e del deserto."},
+{"id":"DRAGO","name":"Scaglie di drago","text":"Come forgiare armi e armature con le scaglie di drago.","where":"Nei forzieri delle roccaforti e dei castelli, e dal Colosso di Magma."},
+{"id":"ARCANO","name":"Alchimia superiore","text":"Gli elisir rari: fenice, unicorno, potere arcano, fortuna e mente lucida.","where":"Nei forzieri dei guardiani, dalla Regina del Gelo e dal Sovrano delle Tempeste."}
+]

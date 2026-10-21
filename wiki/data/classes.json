@@ -1,0 +1,14 @@
+[
+{"id":"GUERRIERO","name":"Guerriero","text":"Combattente in prima linea, cresciuto con la spada più che con i libri.","attribute":"Forza","schools":"Fuoco, Terra","art":"Via della Spada","artBonus":1},
+{"id":"MAGO","name":"Mago","text":"Studioso degli arcani: fuoco, ghiaccio, tenebre e le arti dello spazio sono la sua strada.","attribute":"Intelletto","schools":"Fuoco, Ghiaccio, Oscura, Spaziale","art":"Bastone Sacro","artBonus":1},
+{"id":"RANGER","name":"Ranger","text":"Esploratore dei venti e delle radici: veloce, libero, impossibile da fermare.","attribute":"Destrezza","schools":"Vento, Terra","art":"Danza della Lancia","artBonus":1},
+{"id":"CHIERICO","name":"Chierico","text":"Custode della terra e del gelo: guaritore, scudo e sostegno in battaglia.","attribute":"Vigore","schools":"Ghiaccio, Terra","art":"Frana del Titano","artBonus":1},
+{"id":"LADRO","name":"Ladro","text":"Ombra tra le ombre: colpisce in fretta, scompare ancora più in fretta.","attribute":"Destrezza","schools":"Vento, Oscura","art":"Lama d'Ombra","artBonus":1},
+{"id":"DRUIDO","name":"Druido","text":"Parla con gli elementi: fuoco, gelo, vento e roccia rispondono alla sua voce.","attribute":"Intelletto","schools":"Fuoco, Ghiaccio, Vento, Terra","art":"Bastone Sacro","artBonus":1},
+{"id":"MONACO","name":"Monaco","text":"Nessuna arma: pugni, calci e un respiro che muove le montagne. Parte con il Pugno Celeste al terzo rango.","attribute":"Destrezza","schools":"Vento, Terra","art":"Pugno Celeste","artBonus":3},
+{"id":"SAMURAI","name":"Samurai","text":"La via della spada: un taglio solo, al momento giusto. Parte con la Via della Spada al terzo rango.","attribute":"Forza","schools":"Fuoco, Vento","art":"Via della Spada","artBonus":3},
+{"id":"NINJA","name":"Ninja","text":"Pugnali, ombre e fumo: colpisce dove nessuno guarda. Parte con la Lama d'Ombra al terzo rango.","attribute":"Destrezza","schools":"Vento, Oscura","art":"Lama d'Ombra","artBonus":3},
+{"id":"LANCIERE","name":"Lanciere","text":"Tiene il mondo alla lunghezza di un'asta, e sa danzare lì dietro. Parte con la Danza della Lancia al terzo rango.","attribute":"Destrezza","schools":"Fuoco, Vento","art":"Danza della Lancia","artBonus":3},
+{"id":"BERSERKER","name":"Berserker","text":"Fuoco nelle vene e un'ascia in pugno: più è ferito, più è pericoloso. Parte con la Furia dell'Ascia al terzo rango.","attribute":"Forza","schools":"Fuoco, Terra","art":"Furia dell'Ascia","artBonus":3},
+{"id":"TITANO","name":"Titano","text":"Un maglio e la pazienza di una montagna. Parte con la Frana del Titano al terzo rango.","attribute":"Vigore","schools":"Ghiaccio, Terra","art":"Frana del Titano","artBonus":3}
+]

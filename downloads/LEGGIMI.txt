@@ -1,0 +1,21 @@
+VOXEL WORLD  -  0.1.0 beta
+Un gioco di CBOUQ.
+
+COME SI GIOCA
+1. Installa Java 17 o più recente (gratis): https://adoptium.net
+2. Avvia il gioco:
+     - macOS:    doppio clic su avvia.command  (oppure doppio clic sul file .jar)
+     - Windows:  doppio clic su avvia.bat      (oppure doppio clic sul file .jar)
+     - Linux:    ./avvia.sh                     (oppure: java -jar VoxelWorld-0.1.0-beta.jar)
+3. Dal menu scegli NUOVO MONDO. Se è la prima volta, guarda il TUTORIAL e crea il tuo eroe in PERSONAGGIO.
+
+DOVE SI SALVANO I MONDI
+Nella cartella "saves" accanto al file .jar. Per fare una copia, copia quella cartella.
+
+IN GIOCO
+F1 apre la guida, E il Libro dell'Eroe, G il Grimorio, T la terza persona (chat con gli amici: T in multiplayer),
+Q prende o mette via l'arma, R F C V Y U lanciano gli incantesimi.
+La wiki completa è sul sito.
+
+CONTATTI
+dimastepa07@gmail.com  -  +39 347 401 1265  -  Instagram @_dm1tr7_laur

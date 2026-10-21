@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Wiki di Voxel World</title>
+<meta name="description" content="La wiki completa di Voxel World: incantesimi, armi, armature, ricette, creature, blocchi, boss, sopravvivenza, domini e guide.">
+<meta name="theme-color" content="#0a0912">
+<link rel="icon" href="../assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/css/site.css">
+<link rel="stylesheet" href="wiki.css?v=4">
+</head>
+<body class="wiki">
+<a class="skip" href="#doc">Vai al contenuto</a>
+<header class="wtop">
+  <button class="menu-btn" id="menuBtn" aria-label="Apri l'indice" aria-expanded="false">☰</button>
+  <a class="brand" href="../index.html"><i></i>VOXEL WORLD</a>
+  <span class="sep">/</span><a class="wiki-name" href="#/home">WIKI</a>
+  <a class="home" href="../index.html#scarica">Scarica il gioco</a>
+  <form id="searchForm" role="search"><input id="search" type="search" placeholder="Cerca nella wiki…" aria-label="Cerca nella wiki" autocomplete="off"></form>
+</header>
+<div class="layout">
+  <nav class="side" id="side" aria-label="Indice della wiki"></nav>
+  <main class="doc" id="doc" tabindex="-1"><p class="empty">Carico la wiki…</p></main>
+</div>
+<script src="data/wiki-data.js"></script>
+<script src="content.js?v=4"></script>
+<script src="wiki.js?v=3"></script>
+</body>
+</html>

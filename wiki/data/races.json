@@ -1,0 +1,9 @@
+[
+{"id":"UMANO","name":"Umano","text":"Versatile e adattabile, senza specializzazioni nette.","mods":"Nessun modificatore"},
+{"id":"ELFO","name":"Elfo","text":"Agile e arguto, ma fisicamente più fragile.","mods":"+2 DES, +1 INT, -1 VIG"},
+{"id":"NANO","name":"Nano","text":"Robusto e risoluto, meno scattante.","mods":"+1 FOR, -1 DES, +2 VIG"},
+{"id":"ORCO","name":"Orco","text":"Possente ma meno raffinato.","mods":"+2 FOR, -1 INT, +1 VIG"},
+{"id":"MEZZELFO","name":"Mezzelfo","text":"A cavallo tra due mondi, equilibrato con un lieve vantaggio.","mods":"+1 DES, +1 INT"},
+{"id":"GNOMO","name":"Gnomo","text":"Piccolo, geniale e inquieto: la sua mente corre più veloce delle sue gambe.","mods":"-1 FOR, +1 DES, +2 INT"},
+{"id":"DRACONIDE","name":"Draconide","text":"Sangue di drago nelle vene: forte e fiero, ma poco agile.","mods":"+2 FOR, -1 DES, +1 INT"}
+]

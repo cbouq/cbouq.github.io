@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Voxel World — gioco fantasy a blocchi · beta</title>
+<meta name="description" content="Voxel World: un gioco fantasy a blocchi con mondi enormi, magia, domini, boss giganti, arti marziali e una sopravvivenza vera. Scarica la beta e leggi la wiki completa.">
+<meta name="theme-color" content="#0a0912">
+<meta property="og:title" content="Voxel World — beta">
+<meta property="og:description" content="Mondi enormi, magia e domini, boss giganti, sopravvivenza vera. Scarica la beta.">
+<meta property="og:image" content="assets/img/void-burst.webp">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+<a class="skip" href="#gioco">Vai al contenuto</a>
+
+<header class="nav" id="nav">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Voxel World, inizio pagina"><i></i>VOXEL WORLD</a>
+    <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul id="menu">
+      <li><a href="#gioco">Il gioco</a></li>
+      <li><a href="#domini">Domini</a></li>
+      <li><a href="#galleria">Galleria</a></li>
+      <li><a href="wiki/">Wiki</a></li>
+      <li><a href="#contatti">Contatti</a></li>
+      <li class="cta"><a class="btn sm" href="#scarica">Scarica</a></li>
+    </ul>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Voxel World">
+    <div class="hero-bg"><img src="assets/img/anim-void.webp" alt="" width="720" height="405" fetchpriority="high"></div>
+    <div class="wrap">
+      <span class="eyebrow">Gioco fantasy a blocchi · 0.1.0 <span class="badge">BETA</span></span>
+      <canvas class="title-canvas" id="title3d" role="img" aria-label="VOXEL WORLD"></canvas>
+      <p class="lead">Un mondo enorme da esplorare, castelli e regni nel cielo, boss giganti, magia che cambia il paesaggio e <b>domini che fermano il tempo</b>. In sopravvivenza ogni arma te la guadagni.</p>
+      <div class="cta-row">
+        <a class="btn" href="#scarica">Scarica la beta</a>
+        <a class="btn ghost" href="wiki/">Apri la wiki</a>
+      </div>
+      <div class="meta"><span><b>macOS · Windows · Linux</b></span><span>Gratis</span><span>1–8 giocatori in cooperativa</span><span>Nessun file esterno: tutto è generato dal codice</span></div>
+    </div>
+    <span class="scroll-cue" aria-hidden="true">▼ SCORRI</span>
+  </section>
+
+  <div class="stats" aria-label="Il gioco in numeri">
+    <div class="wrap">
+      <div class="stat"><b data-n="54">0</b><span>incantesimi</span></div>
+      <div class="stat"><b data-n="13">0</b><span>biomi</span></div>
+      <div class="stat"><b data-n="258">0</b><span>blocchi</span></div>
+      <div class="stat"><b data-n="42">0</b><span>creature</span></div>
+      <div class="stat"><b data-n="12">0</b><span>classi</span></div>
+      <div class="stat"><b data-n="6">0</b><span>domini</span></div>
+    </div>
+  </div>
+
+  <section id="gioco">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Il gioco</span>
+        <h2 class="px">Un'avventura che ti chiede di meritarla</h2>
+        <p class="lead">Voxel World è un fantasy a blocchi con la libertà di un creativo e la fame di un survival: in Creativo hai tutto e costruisci, in Sopravvivenza parti con le mani vuote, scavi, fabbrichi, cacci schemi e riparazioni, e ogni battaglia lascia il segno.</p>
+      </div>
+
+      <div class="feature rv">
+        <div>
+          <h3>Mondi giganteschi</h3>
+          <p>Montagne alte oltre duecento blocchi, alberi colossali, caverne a tema, tredici biomi e oltre un centinaio di strutture: castelli imponenti, piramidi, regni abbandonati, isole nel cielo e dojo giapponesi nascosti tra i ciliegi.</p>
+          <ul><li>Terreno infinito generato dal seed</li><li>Giorno e notte, meteo, vento che muove le foglie</li><li>Acqua trasparente, ghiaccio che fa scivolare</li></ul>
+          <a class="btn ghost sm" href="wiki/#/biomi">Esplora i biomi</a>
+        </div>
+        <figure class="f-media shot"><img src="assets/img/biome-crystal.webp" alt="Campi di cristallo rosa e viola" loading="lazy" width="1600" height="900"><figcaption>Campi di cristallo</figcaption></figure>
+      </div>
+
+      <div class="feature rv">
+        <div>
+          <h3>Magia da maghi veri</h3>
+          <p>Sei scuole, cinquantaquattro incantesimi e una settima scuola segreta, quella dei <b>Domini</b>. Ogni magia disegna un cerchio magico, cambia il terreno e fa tremare lo schermo. In sopravvivenza le studi con schegge ed essenze e le fai crescere lanciandole.</p>
+          <ul><li>Meteore, tornado, buchi neri, zero assoluto</li><li>Cavalcature evocate: destriero di vento, grifone celeste</li><li>Maestria da 1 a 5 per ogni incantesimo</li></ul>
+          <a class="btn ghost sm" href="wiki/#/incantesimi">Tutti gli incantesimi</a>
+        </div>
+        <figure class="f-media shot"><img src="assets/img/void-burst.webp" alt="Il Vuoto Infinito: luci accecanti dentro la cupola" loading="lazy" width="1600" height="900"><figcaption>Vuoto Infinito</figcaption></figure>
+      </div>
+
+      <div class="feature rv">
+        <div>
+          <h3>Combattere con le mani, non con i numeri</h3>
+          <p>Catene di colpi per ogni arma, parata perfetta, schivata che rallenta il tempo, contrattacchi e colpi finali che spaccano il terreno. Dalle sette arti marziali alle classi dei dojo: più colpisci, più sali di rango.</p>
+          <ul><li>Armi in prima persona con braccia animate</li><li>Boss giganti con quattro fasi e attacchi telegrafati</li><li>Sei guardiani e un Re Eterno</li></ul>
+          <a class="btn ghost sm" href="wiki/#/combattimento">Impara a combattere</a>
+        </div>
+        <figure class="f-media shot"><img src="assets/img/fp-hammer.webp" alt="Un martello in prima persona" loading="lazy" width="1600" height="900"><figcaption>Il martello, in mano</figcaption></figure>
+      </div>
+
+      <div class="feature rv">
+        <div>
+          <h3>Sopravvivenza che morde</h3>
+          <p>Niente blocchi gratis: li scavi. Le armi migliori richiedono <b>schemi</b> trovati nei forzieri antichi e la <b>Forgia runica</b>; armi e armature si consumano e vanno riparate; il freddo e il caldo contano; se muori, la tua borsa resta in una <b>tomba</b> segnata da una colonna di luce.</p>
+          <ul><li>Fame, cucina, alchimia, fattoria</li><li>Diario di Eldrin: 16 pagine e il Sigillo contro il Re Eterno</li><li>Imprese: oltre 70 da completare</li></ul>
+          <a class="btn ghost sm" href="wiki/#/sopravvivenza">La guida alla sopravvivenza</a>
+        </div>
+        <figure class="f-media shot"><img src="assets/img/ui-craft.webp" alt="Il Libro dell'Eroe con l'Artigiano e le ricette" loading="lazy" width="1600" height="900"><figcaption>L'Artigiano: ricette, schemi e riparazioni</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="domains" id="domini">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Le mosse definitive</span>
+        <h2 class="px">Espansione del Dominio</h2>
+        <p class="lead">L'eroe si alza in volo, pronuncia le parole, e il mondo si apre. Le scene qui sotto sono il gioco vero, ripreso al rallentatore: è lo stesso spettacolo che vedi dietro al menu.</p>
+      </div>
+      <div class="tabs" role="tablist" aria-label="Scegli un dominio">
+        <button class="tab" role="tab" aria-selected="true" data-theme="void" data-target="d-void">Vuoto Infinito</button>
+        <button class="tab" role="tab" aria-selected="false" data-theme="shrine" data-target="d-shrine">Santuario Malevolo</button>
+      </div>
+
+      <div class="dom on" id="d-void" role="tabpanel">
+        <figure class="shot"><img src="assets/img/anim-void.webp" alt="Animazione: il Vuoto Infinito, dal rito alle luci" width="720" height="405"><figcaption>Il Vuoto Infinito — il rito, la quiete, le luci</figcaption></figure>
+        <div>
+          <h3>Tutto si ferma. Poi le luci.</h3>
+          <ol>
+            <li><b>Il rito</b>Il tuo eroe si alza in volo, incrocia le dita e dice «Espansione del Dominio… Vuoto Infinito». Nulla può toccarlo.</li>
+            <li><b>La quiete</b>Per un istante il mondo si ferma: creature, particelle, tutto. Nessuno subisce danno.</li>
+            <li><b>La rivelazione</b>Si apre il vuoto: galassie, stelle, un'infinità di informazioni.</li>
+            <li><b>Le luci</b>Raggi accecanti da ogni lato: è qui che i nemici vengono annientati e il guardiano subisce la maggior parte del danno.</li>
+          </ol>
+          <div class="tiles"><div class="tile"><b>~7 s</b><span>di luci</span></div><div class="tile"><b>100%</b><span>nemici normali annientati</span></div><div class="tile"><b>~50%</b><span>vita persa da un guardiano</span></div></div>
+        </div>
+      </div>
+
+      <div class="dom" id="d-shrine" role="tabpanel">
+        <figure class="shot"><img src="assets/img/anim-shrine.webp" alt="Animazione: il Santuario Malevolo e la tempesta di tagli" width="720" height="405" loading="lazy"><figcaption>Il Santuario Malevolo — il santuario sorge, i tagli non finiscono</figcaption></figure>
+        <div>
+          <h3>Un santuario di ossa e mille tagli.</h3>
+          <ol>
+            <li><b>Il rito</b>Le braccia si spalancano, l'aria si taglia tutt'intorno. Il rito è il più lungo del gioco.</li>
+            <li><b>Il santuario</b>Dal terreno sorgono pilastri rossi, un tetto a tre livelli, denti di osso. Sotto, il cortile di pietra scura.</li>
+            <li><b>La tempesta</b>Decine di tagli ogni istante, corti e lunghissimi, da ogni angolazione; ogni tanto un colpo enorme su un solo nemico.</li>
+            <li><b>La fine</b>Il santuario torna sotto terra e la cupola si dissolve.</li>
+          </ol>
+          <div class="tiles"><div class="tile"><b>26</b><span>tagli ogni 0,05 s</span></div><div class="tile"><b>100%</b><span>nemici normali annientati</span></div><div class="tile"><b>~55%</b><span>vita persa da un guardiano</span></div></div>
+        </div>
+      </div>
+      <p class="rv" style="margin-top:22px"><a href="wiki/#/domini">Tutto sui sei Domini →</a></p>
+    </div>
+  </section>
+
+  <section id="galleria">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Galleria</span>
+        <h2 class="px">Immagini dal gioco</h2>
+        <p>Tutte catturate dal gioco vero, senza ritocchi. Clicca per ingrandire.</p>
+      </div>
+      <div class="gallery rv" id="gallery"></div>
+    </div>
+  </section>
+
+  <section class="dl" id="scarica">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Scarica</span>
+        <h2 class="px">Voxel World 0.1.0 <span class="badge">BETA</span></h2>
+        <p class="lead">Un solo pacchetto per macOS, Windows e Linux. È una beta: aspettati qualche spigolo, e se ne trovi uno scrivimi.</p>
+      </div>
+      <div class="dl-main rv">
+        <div>
+          <h3>VoxelWorld-0.1.0-beta-completo.zip</h3>
+          <p>Dentro trovi il gioco (un unico file .jar con tutto), gli script di avvio per ogni sistema e un LEGGIMI.</p>
+          <div class="cta-row"><a class="btn" href="downloads/VoxelWorld-0.1.0-beta-completo.zip" download>Scarica il pacchetto · 14 MB</a></div>
+          <p style="margin:6px 0 0"><a href="downloads/VoxelWorld-0.1.0-beta.jar" download>Solo il file .jar (15 MB)</a> · <a href="downloads/LEGGIMI.txt">LEGGIMI</a></p>
+          <p class="sha">SHA-256 pacchetto: 31109b0caa9b3caf13d2667e0a26dd2d6a9c10c004af32154172627a9a6006ab</p>
+        </div>
+        <div>
+          <div class="dl-facts">
+            <div><b>0.1.0 beta</b>versione</div><div><b>Gratis</b>prezzo</div>
+            <div><b>Java 17+</b>requisito</div><div><b>1–8</b>giocatori</div>
+          </div>
+          <p class="req">Serve <a href="https://adoptium.net" target="_blank" rel="noopener">Java 17 o più recente</a> (gratis). Una scheda grafica con OpenGL 3 e 4 GB di memoria bastano.</p>
+        </div>
+      </div>
+      <div class="os rv">
+        <article><h4>macOS</h4><ol><li>Estrai lo zip.</li><li>Doppio clic su <code>avvia.command</code> (oppure sul file <code>.jar</code>).</li><li>Se il sistema si ferma: clic destro → Apri.</li></ol></article>
+        <article><h4>Windows</h4><ol><li>Estrai lo zip.</li><li>Doppio clic su <code>avvia.bat</code> (oppure sul file <code>.jar</code>).</li><li>Se Windows avvisa, scegli «Esegui comunque».</li></ol></article>
+        <article><h4>Linux</h4><ol><li>Estrai lo zip.</li><li><code>chmod +x avvia.sh</code></li><li><code>./avvia.sh</code> (oppure <code>java -jar VoxelWorld-0.1.0-beta.jar</code>).</li></ol></article>
+      </div>
+      <p class="rv" style="margin-top:26px">Dopo l'avvio: guarda il <b>Tutorial animato</b> dal menu, crea il tuo eroe in <b>Personaggio</b> e apri un <b>Nuovo mondo</b>. In gioco <span class="kbd">F1</span> apre la guida. I mondi si salvano nella cartella <code>saves</code> accanto al gioco.</p>
+    </div>
+  </section>
+
+  <section id="wiki">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Wiki</span>
+        <h2 class="px">Tutto sul gioco, in un posto solo</h2>
+        <p class="lead">Ogni incantesimo, arma, armatura, ricetta, creatura, blocco e impresa, con i numeri veri del gioco. Più le guide per cominciare, sopravvivere e battere il Re Eterno.</p>
+      </div>
+      <form class="search-big rv" action="wiki/" method="get" onsubmit="location.href='wiki/#/cerca/'+encodeURIComponent(this.q.value);return false;">
+        <label class="sr" for="q" style="position:absolute;left:-999px">Cerca nella wiki</label>
+        <input id="q" name="q" type="search" placeholder="Cerca: «meteore», «forgia», «Re delle Ossa»…" autocomplete="off">
+        <button class="btn sm" type="submit">Cerca</button>
+      </form>
+      <div class="wiki-tease rv">
+        <a href="wiki/#/per-iniziare"><b>Per iniziare</b><span>I primi dieci minuti: controlli, creare l'eroe, primo mondo.</span></a>
+        <a href="wiki/#/sopravvivenza"><b>Sopravvivenza</b><span>Schemi, Forgia, usura, clima, tomba, diario.</span></a>
+        <a href="wiki/#/domini"><b>I sei Domini</b><span>Rito, effetti, tempi, danni e dove trovare le pergamene.</span></a>
+        <a href="wiki/#/ricette"><b>Ricette</b><span>166 ricette con ingredienti, banco e schema richiesto.</span></a>
+        <a href="wiki/#/boss"><b>Boss</b><span>Fasi, attacchi, bottino e come batterli.</span></a>
+        <a href="wiki/#/console"><b>Comandi</b><span>La console di gioco, un comando alla volta.</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contatti">
+    <div class="wrap grid">
+      <div class="rv">
+        <canvas class="tag-canvas" id="tag3d" role="img" aria-label="Tag in pixel art 3D con la scritta CBOUQ. Trascinalo o cliccalo."></canvas>
+      </div>
+      <div class="rv">
+        <span class="eyebrow">Contatti</span>
+        <h2 class="px">Parliamone</h2>
+        <p class="lead">Voxel World lo fa <b>CBOUQ</b>. Un bug, un'idea, una collaborazione o solo un saluto: scrivimi dove preferisci.</p>
+        <div class="cards">
+          <a class="cc" href="mailto:dimastepa07@gmail.com"><span class="ic"><svg viewBox="0 0 24 24"><path d="M3 5h18v14H3z"/><path d="M3 6l9 7 9-7"/></svg></span><span><small>Email</small><b>dimastepa07@gmail.com</b></span></a>
+          <a class="cc" href="tel:+393474011265"><span class="ic"><svg viewBox="0 0 24 24"><path d="M6 3h4l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 4 5a2 2 0 0 1 2-2z"/></svg></span><span><small>Telefono · WhatsApp</small><b>+39 347 401 1265</b></span></a>
+          <a class="cc" href="https://instagram.com/_dm1tr7_laur" target="_blank" rel="noopener"><span class="ic"><svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18"/><circle cx="12" cy="12" r="4"/><path d="M17 7h.01"/></svg></span><span><small>Instagram</small><b>@_dm1tr7_laur</b></span></a>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>CBOUQ</b> · Voxel World 0.1.0 beta</span>
+    <span>Fatto con blocchi, pazienza e notti insonni.</span>
+    <a href="#top">↑ Torna su</a>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Immagine ingrandita">
+  <button class="btn ghost sm x" id="lbx" aria-label="Chiudi">Chiudi ✕</button>
+  <figure style="margin:0"><img id="lbimg" alt=""><p id="lbcap"></p></figure>
+</div>
+
+<script src="assets/js/pixel-font.js"></script>
+<script src="assets/js/voxel3d.js"></script>
+<script src="assets/js/home.js"></script>
+</body>
+</html>

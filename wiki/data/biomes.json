@@ -1,0 +1,15 @@
+[
+{"id":"PLAINS","name":"Pianure","temperature":0},
+{"id":"DESERT","name":"Deserto","temperature":0.72},
+{"id":"MOUNTAIN","name":"Montagne","temperature":-0.3},
+{"id":"TUNDRA","name":"Tundra","temperature":-0.78},
+{"id":"SWAMP","name":"Palude","temperature":0.08},
+{"id":"ENCHANTED_FOREST","name":"Foresta incantata","temperature":0},
+{"id":"VOLCANIC","name":"Terre vulcaniche","temperature":0.95},
+{"id":"JUNGLE","name":"Giungla","temperature":0.34},
+{"id":"SAVANNA","name":"Savana","temperature":0.42},
+{"id":"BADLANDS","name":"Calanchi","temperature":0.62},
+{"id":"CHERRY_GROVE","name":"Bosco dei ciliegi","temperature":0},
+{"id":"TAIGA","name":"Taiga","temperature":-0.48},
+{"id":"CRYSTAL_FIELDS","name":"Campi di cristallo","temperature":-0.12}
+]
