@@ -4,16 +4,21 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Voxel World — gioco fantasy a blocchi · beta</title>
-<meta name="description" content="Voxel World: un gioco fantasy a blocchi con mondi enormi, magia, domini, boss giganti, arti marziali e una sopravvivenza vera. Scarica la beta e leggi la wiki completa.">
+<meta name="description" content="Voxel World: un gioco fantasy a blocchi con villaggi vivi, mondi enormi, magia, domini, boss giganti, armi dai minerali rari e una sopravvivenza vera. Provalo qui in 3D, poi scaricalo: non serve Java.">
 <meta name="theme-color" content="#0a0912">
 <meta property="og:title" content="Voxel World — beta">
-<meta property="og:description" content="Mondi enormi, magia e domini, boss giganti, sopravvivenza vera. Scarica la beta.">
-<meta property="og:image" content="assets/img/void-burst.webp">
+<meta property="og:description" content="Un'isola in volo, un villaggio vero, armi, creature e miniere da toccare con mano. Scarica la beta: non serve Java.">
+<meta property="og:image" content="assets/img/hero-island.webp">
+<meta property="og:type" content="website">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/world3d.css">
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js"}}</script>
+<link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js">
 </head>
 <body>
 <a class="skip" href="#gioco">Vai al contenuto</a>
@@ -24,39 +29,98 @@
     <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
     <ul id="menu">
       <li><a href="#gioco">Il gioco</a></li>
+      <li><a href="#armeria">Armeria</a></li>
+      <li><a href="#bestiario">Bestiario</a></li>
+      <li><a href="#miniere">Miniere</a></li>
+      <li><a href="#costruisci">Costruisci</a></li>
       <li><a href="#domini">Domini</a></li>
-      <li><a href="#galleria">Galleria</a></li>
+      <li><a href="novita.html">Novità</a></li>
       <li><a href="wiki/">Wiki</a></li>
-      <li><a href="#contatti">Contatti</a></li>
       <li class="cta"><a class="btn sm" href="#scarica">Scarica</a></li>
     </ul>
   </div>
 </header>
 
 <main id="top">
-  <section class="hero" aria-label="Voxel World">
-    <div class="hero-bg"><img src="assets/img/anim-void.webp" alt="" width="720" height="405" fetchpriority="high"></div>
-    <div class="wrap">
-      <span class="eyebrow">Gioco fantasy a blocchi · 0.1.0 <span class="badge">BETA</span></span>
-      <canvas class="title-canvas" id="title3d" role="img" aria-label="VOXEL WORLD"></canvas>
-      <p class="lead">Un mondo enorme da esplorare, castelli e regni nel cielo, boss giganti, magia che cambia il paesaggio e <b>domini che fermano il tempo</b>. In sopravvivenza ogni arma te la guadagni.</p>
-      <div class="cta-row">
-        <a class="btn" href="#scarica">Scarica la beta</a>
-        <a class="btn ghost" href="wiki/">Apri la wiki</a>
+
+  <!-- il viaggio: un'isola in volo con un villaggio vero, la telecamera segue la pagina -->
+  <section class="journey" id="world" aria-label="Voxel World: un villaggio del gioco, visto dall'alto e da vicino">
+    <div class="journey-pin">
+      <div class="j-fallback"><img src="assets/img/hero-island.webp" alt="" width="1920" height="1080" fetchpriority="high"></div>
+      <div class="world-host" id="world-host"></div>
+      <div class="j-vignette"></div>
+      <div class="j-load" aria-hidden="true">COSTRUISCO L'ISOLA<i></i></div>
+
+      <div class="j-step intro" data-from="0" data-to="0.115">
+        <div class="in">
+          <span class="eyebrow">Gioco fantasy a blocchi · 0.2.0 <span class="badge">BETA</span></span>
+          <canvas class="title-canvas" id="title3d" role="img" aria-label="VOXEL WORLD"></canvas>
+          <p class="lead">Un mondo enorme da esplorare, villaggi vivi con mercanti e missioni, boss giganti, magia che cambia il paesaggio e <b>domini che fermano il tempo</b>. In sopravvivenza ogni arma te la guadagni.</p>
+          <div class="cta-row">
+            <a class="btn" href="#scarica">Scarica la beta</a>
+            <a class="btn ghost" href="#gioco">Scopri il gioco</a>
+          </div>
+          <div class="meta"><span><b>macOS · Windows · Linux</b></span><span>Gratis</span><span>Non serve Java</span><span>1–8 giocatori in cooperativa</span></div>
+        </div>
       </div>
-      <div class="meta"><span><b>macOS · Windows · Linux</b></span><span>Gratis</span><span>1–8 giocatori in cooperativa</span><span>Nessun file esterno: tutto è generato dal codice</span></div>
+
+      <div class="j-step" data-from="0.2" data-to="0.4">
+        <div class="j-card">
+          <h3>Villaggi che vivono</h3>
+          <p>Ogni villaggio ha le sue facce: l'Oste, il Mercante, il Fabbro, il Cacciatore, l'Erborista. Parlaci, compra e vendi, accetta missioni e guadagna fiducia: più ti stimano, meno paghi.</p>
+          <div class="chips"><span>8 mestieri</span><span>Missioni</span><span>Reputazione</span><span>Monete</span></div>
+        </div>
+      </div>
+
+      <div class="j-step right" data-from="0.42" data-to="0.58">
+        <div class="j-card">
+          <h3>La forgia e l'Eredità</h3>
+          <p>Il Fabbro ripara e tempra le tue lame con i Frammenti d'Eredità: <b>+10% di danno</b> a ogni livello. E quando il Re Eterno cade, l'Anziano può risvegliare il regno: tutto ritorna, più forte.</p>
+          <div class="chips"><span>Tempra +1…+5</span><span>10 gradi di Eredità</span></div>
+        </div>
+      </div>
+
+      <div class="j-step" data-from="0.6" data-to="0.77">
+        <div class="j-card">
+          <h3>Questo è il gioco vero</h3>
+          <p>Il villaggio che vedi lo ha generato il motore del gioco, con le sue texture e i suoi abitanti. Trascina per girare, tocca un abitante per conoscerlo.</p>
+          <div class="chips"><span>Generato dal codice</span><span>Texture del gioco</span></div>
+        </div>
+      </div>
+
+      <div class="j-step right" data-from="0.79" data-to="0.93">
+        <div class="j-card">
+          <h3>Poi cala la notte</h3>
+          <p>Le torce si accendono, i mostri escono. Le texture scure sono pensate per stancare meno gli occhi nelle lunghe sessioni: puoi tornare a quelle classiche in ogni momento.</p>
+          <div class="chips"><span>Torce vere</span><span>Notte da 10 minuti</span></div>
+        </div>
+      </div>
+
+      <div class="j-step center" data-from="0.95" data-to="1.01">
+        <div class="j-card">
+          <h3>E sotto l'isola c'è molto altro</h3>
+          <p>Armi forgiate con minerali rari, creature, miniere, un posto dove costruire. Scorri e gioca.</p>
+          <a class="btn sm" href="#armeria">Vai all'armeria</a>
+        </div>
+      </div>
+
+      <div class="j-ui ui3d">
+        <div class="row"><button class="tog" type="button" id="t-night">Ora: automatica</button><button class="tog" type="button" data-theme-toggle aria-pressed="false">Texture: scure</button></div>
+      </div>
+      <span class="j-cue" aria-hidden="true">▼ SCORRI</span>
+      <div class="j-dots" aria-label="Tappe del viaggio"></div>
+      <div class="npc-card" id="npc-card" role="dialog" aria-live="polite"></div>
     </div>
-    <span class="scroll-cue" aria-hidden="true">▼ SCORRI</span>
   </section>
 
   <div class="stats" aria-label="Il gioco in numeri">
     <div class="wrap">
       <div class="stat"><b data-n="54">0</b><span>incantesimi</span></div>
+      <div class="stat"><b data-n="97">0</b><span>armi</span></div>
+      <div class="stat"><b data-n="9">0</b><span>minerali rari e comuni</span></div>
       <div class="stat"><b data-n="13">0</b><span>biomi</span></div>
-      <div class="stat"><b data-n="258">0</b><span>blocchi</span></div>
-      <div class="stat"><b data-n="42">0</b><span>creature</span></div>
-      <div class="stat"><b data-n="12">0</b><span>classi</span></div>
-      <div class="stat"><b data-n="6">0</b><span>domini</span></div>
+      <div class="stat"><b data-n="267">0</b><span>blocchi</span></div>
+      <div class="stat"><b data-n="50">0</b><span>creature e abitanti</span></div>
     </div>
   </div>
 
@@ -76,6 +140,16 @@
           <a class="btn ghost sm" href="wiki/#/biomi">Esplora i biomi</a>
         </div>
         <figure class="f-media shot"><img src="assets/img/biome-crystal.webp" alt="Campi di cristallo rosa e viola" loading="lazy" width="1600" height="900"><figcaption>Campi di cristallo</figcaption></figure>
+      </div>
+
+      <div class="feature rv">
+        <div>
+          <h3>Villaggi, missioni, Eredità</h3>
+          <p>Mercanti che comprano e vendono, un fabbro che tempra le armi, anziani che danno incarichi: cacce, consegne, imprese e boss. Ogni villaggio ti ricorda e ti stima di più a ogni favore. Dopo il Re Eterno, l'Eredità risveglia il regno fino a dieci volte.</p>
+          <ul><li>Reputazione per villaggio e sconti fino al 20%</li><li>Frammenti d'Eredità per temprare le armi</li><li>Un registro delle missioni sempre a portata di mano</li></ul>
+          <a class="btn ghost sm" href="wiki/#/villaggi">I villaggi nella wiki</a>
+        </div>
+        <figure class="f-media shot"><img src="assets/img/village-day.webp" alt="Un villaggio del gioco con il mercato" loading="lazy" width="1600" height="900"><figcaption>Il mercato di un villaggio</figcaption></figure>
       </div>
 
       <div class="feature rv">
@@ -101,12 +175,82 @@
       <div class="feature rv">
         <div>
           <h3>Sopravvivenza che morde</h3>
-          <p>Niente blocchi gratis: li scavi. Le armi migliori richiedono <b>schemi</b> trovati nei forzieri antichi e la <b>Forgia runica</b>; armi e armature si consumano e vanno riparate; il freddo e il caldo contano; se muori, la tua borsa resta in una <b>tomba</b> segnata da una colonna di luce.</p>
-          <ul><li>Fame, cucina, alchimia, fattoria</li><li>Diario di Eldrin: 16 pagine e il Sigillo contro il Re Eterno</li><li>Imprese: oltre 70 da completare</li></ul>
-          <a class="btn ghost sm" href="wiki/#/sopravvivenza">La guida alla sopravvivenza</a>
+          <p>Niente blocchi gratis: li scavi. Le armi migliori nascono da <b>minerali rari</b> che trovi solo in profondità, da <b>schemi</b> scovati nei forzieri antichi e dalla <b>Forgia runica</b>; tutto si consuma e va riparato; il freddo e il caldo contano; se muori, la tua borsa resta in una <b>tomba</b> segnata da una colonna di luce.</p>
+          <ul><li>Fame, cucina, alchimia, fattoria</li><li>Cinque cristalli rari, ognuno con il suo potere</li><li>Imprese: oltre 90 da completare</li></ul>
+          <a class="btn ghost sm" href="wiki/#/minerali">I minerali nella wiki</a>
         </div>
         <figure class="f-media shot"><img src="assets/img/ui-craft.webp" alt="Il Libro dell'Eroe con l'Artigiano e le ricette" loading="lazy" width="1600" height="900"><figcaption>L'Artigiano: ricette, schemi e riparazioni</figcaption></figure>
       </div>
+
+      <div class="feature rv">
+        <div>
+          <h3>Pensato per giocare per ore</h3>
+          <p>Texture più scure e morbide, che stancano meno gli occhi: ogni materiale è tarato per avere pochi contrasti e nessun bagliore. In più la <b>modalità comfort</b>, il filtro caldo serale, il rendering nitido a tutti i pixel dello schermo e la modalità foto.</p>
+          <ul><li>Tema scuro medievale o classico, a tua scelta</li><li>Promemoria per riposare gli occhi</li><li>Nitidezza al 100% anche sugli schermi Retina</li></ul>
+          <a class="btn ghost sm" href="wiki/#/comfort">Comfort e nitidezza</a>
+        </div>
+        <figure class="f-media shot"><img src="assets/img/dark-vs-classic.webp" alt="Confronto tra le texture classiche e quelle scure" loading="lazy" width="1600" height="900"><figcaption>Classiche a sinistra, scure a destra</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="zone alt" id="armeria">
+    <div class="wrap">
+      <div class="zone-head rv">
+        <span class="eyebrow">Armeria · 3D</span>
+        <h2 class="px">Novantasette armi, una per una</h2>
+        <p class="lead">Spade, pugnali, asce, magli, lance e bastoni in ogni minerale, più le armi dei guardiani. Sono i modelli veri del gioco: gira l'arma, brandiscila, leggi cosa fa.</p>
+      </div>
+      <div class="stage" id="armory" data-loading="FORGIO LE ARMI…" aria-label="Armeria 3D"></div>
+      <p class="zone-note">Il danno e gli effetti sono letti dal gioco stesso: quando il gioco cambia, la wiki e questa pagina si aggiornano insieme. <a href="wiki/#/armi">Tabella completa nella wiki →</a></p>
+    </div>
+  </section>
+
+  <section class="zone" id="bestiario">
+    <div class="wrap">
+      <div class="zone-head rv">
+        <span class="eyebrow">Bestiario · 3D</span>
+        <h2 class="px">Chi incontrerai</h2>
+        <p class="lead">Fauna, mostri, abitanti dei villaggi e i sette guardiani. Ti guardano mentre muovi il puntatore e camminano quando glielo chiedi.</p>
+      </div>
+      <div class="stage bestiary" id="bestiary" data-loading="SVEGLIO LE CREATURE…" aria-label="Bestiario 3D"></div>
+      <p class="zone-note">Vita, danno, velocità e punti esperienza sono quelli veri. <a href="wiki/#/creature">Tutte le creature nella wiki →</a></p>
+    </div>
+  </section>
+
+  <section class="mine" id="miniere" aria-label="Le miniere: scendi in profondità">
+    <div class="mine-pin">
+      <div class="mine-host" id="mine-host"></div>
+      <div class="vignette"></div>
+      <div class="mine-title">
+        <span class="eyebrow">Miniere · 3D</span>
+        <h2 class="px">Scendi</h2>
+        <p>Scorri per scendere. I minerali sono dove li mette il gioco, alla profondità vera. Clicca un blocco per scavarlo.</p>
+      </div>
+      <div class="gauge" aria-hidden="true"><i id="gauge-tick"></i><b style="top:0">SUP.</b><b style="top:50%">Y 60</b><b style="top:100%">Y 0</b></div>
+      <div class="mine-hud">
+        <div class="j-card">
+          <div class="depth-big" id="mine-y">Y 108<small>PROFONDITÀ</small></div>
+          <h5>Qui trovi</h5>
+          <div class="here" id="mine-here"></div>
+          <h5>Raccolti</h5>
+          <div class="got" id="mine-got"><em>Ancora niente: clicca un blocco.</em></div>
+        </div>
+        <div class="j-card" id="mine-info" hidden></div>
+      </div>
+      <div class="mine-cue" aria-hidden="true">CLIC = SCAVA · I PUNTI VIOLA SONO I CRISTALLI RARI</div>
+    </div>
+  </section>
+
+  <section class="zone alt" id="costruisci">
+    <div class="wrap">
+      <div class="zone-head rv">
+        <span class="eyebrow">Costruisci · 3D</span>
+        <h2 class="px">Un pezzo di cielo tutto tuo</h2>
+        <p class="lead">Una piccola isola con una casetta, fatta con i blocchi del gioco. Prendi un blocco dalla tavolozza e costruisci; fai notte e guarda le torce; scatta una foto di quello che hai fatto.</p>
+      </div>
+      <div class="stage builder" id="builder" data-loading="PREPARO L'ISOLA…" aria-label="Costruttore 3D"></div>
+      <p class="zone-note">Nel gioco vero i blocchi sono 267, il mondo non ha fine e puoi costruire con gli amici. Qui è un assaggio.</p>
     </div>
   </section>
 
@@ -115,7 +259,7 @@
       <div class="sec-head rv">
         <span class="eyebrow">Le mosse definitive</span>
         <h2 class="px">Espansione del Dominio</h2>
-        <p class="lead">L'eroe si alza in volo, pronuncia le parole, e il mondo si apre. Le scene qui sotto sono il gioco vero, ripreso al rallentatore: è lo stesso spettacolo che vedi dietro al menu.</p>
+        <p class="lead">L'eroe si alza in volo, pronuncia le parole, e il mondo si apre. Le scene qui sotto sono il gioco vero, registrate a 60 fotogrammi al secondo: è lo stesso spettacolo che vedi dietro al menu.</p>
       </div>
       <div class="tabs" role="tablist" aria-label="Scegli un dominio">
         <button class="tab" role="tab" aria-selected="true" data-theme="void" data-target="d-void">Vuoto Infinito</button>
@@ -123,7 +267,7 @@
       </div>
 
       <div class="dom on" id="d-void" role="tabpanel">
-        <figure class="shot"><img src="assets/img/anim-void.webp" alt="Animazione: il Vuoto Infinito, dal rito alle luci" width="720" height="405"><figcaption>Il Vuoto Infinito — il rito, la quiete, le luci</figcaption></figure>
+        <figure class="shot vid"><video muted loop playsinline preload="none" poster="assets/video/void-poster.jpg" width="1920" height="1080" aria-label="Il Vuoto Infinito, dal rito alle luci"><source data-src="assets/video/void.mp4" data-small="assets/video/void-720.mp4" type="video/mp4"></video><button class="btn3d play" type="button" style="position:absolute">Pausa</button><span class="bar"><i></i></span><figcaption>Il Vuoto Infinito — il rito, la quiete, le luci</figcaption></figure>
         <div>
           <h3>Tutto si ferma. Poi le luci.</h3>
           <ol>
@@ -137,7 +281,7 @@
       </div>
 
       <div class="dom" id="d-shrine" role="tabpanel">
-        <figure class="shot"><img src="assets/img/anim-shrine.webp" alt="Animazione: il Santuario Malevolo e la tempesta di tagli" width="720" height="405" loading="lazy"><figcaption>Il Santuario Malevolo — il santuario sorge, i tagli non finiscono</figcaption></figure>
+        <figure class="shot vid"><video muted loop playsinline preload="none" poster="assets/video/shrine-poster.jpg" width="1920" height="1080" aria-label="Il Santuario Malevolo e la tempesta di tagli"><source data-src="assets/video/shrine.mp4" data-small="assets/video/shrine-720.mp4" type="video/mp4"></video><button class="btn3d play" type="button" style="position:absolute">Pausa</button><span class="bar"><i></i></span><figcaption>Il Santuario Malevolo — il santuario sorge, i tagli non finiscono</figcaption></figure>
         <div>
           <h3>Un santuario di ossa e mille tagli.</h3>
           <ol>
@@ -164,35 +308,50 @@
     </div>
   </section>
 
+  <section id="novita">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Ultimo aggiornamento · 0.2.0 beta</span>
+        <h2 class="px">Cosa c'è di nuovo</h2>
+        <p class="lead">Villaggi, missioni, Eredità, armi dai minerali, texture più scure, un'interfaccia da film e il gioco che si installa senza Java. Qui il riassunto; l'elenco completo, voce per voce, è nella pagina delle novità.</p>
+      </div>
+      <div class="news rv">
+        <article><small>MONDO</small><h4>Villaggi vivi</h4><p>Otto mestieri, mercato con prezzi e sconti, missioni di caccia, consegna, creazione, esplorazione e boss.</p></article>
+        <article><small>ARMI</small><h4>97 armi, 9 minerali</h4><p>Rame, stagno, argento, cobalto e cinque cristalli rari con poteri: fiamme, gelo, tuono, vampirismo, ombra.</p></article>
+        <article><small>EREDITÀ</small><h4>Il regno si risveglia</h4><p>Dieci gradi di sfida, Frammenti d'Eredità e tempra delle armi fino a +5.</p></article>
+        <article><small>OCCHI</small><h4>Texture scure</h4><p>Materiali ricalibrati, bagliori domati, nitidezza piena anche su schermi ad alta densità.</p></article>
+        <article><small>STILE</small><h4>Interfaccia da film</h4><p>Dissolvenze, cartelli dei luoghi, barre cinematografiche per i boss, modalità foto.</p></article>
+        <article><small>INSTALLA</small><h4>Senza Java</h4><p>Un installer per ogni sistema: il gioco porta con sé tutto quello che serve.</p></article>
+      </div>
+      <p class="rv" style="margin-top:24px"><a class="btn sm" href="novita.html">Tutte le novità, per filo e per segno</a></p>
+    </div>
+  </section>
+
   <section class="dl" id="scarica">
     <div class="wrap">
       <div class="sec-head rv">
         <span class="eyebrow">Scarica</span>
-        <h2 class="px">Voxel World 0.1.0 <span class="badge">BETA</span></h2>
-        <p class="lead">Un solo pacchetto per macOS, Windows e Linux. È una beta: aspettati qualche spigolo, e se ne trovi uno scrivimi.</p>
+        <h2 class="px">Voxel World 0.2.0 <span class="badge">BETA</span></h2>
+        <p class="lead">Un installer per ogni sistema, e <b>non serve installare Java</b>: il gioco si porta dietro tutto. È una beta: aspettati qualche spigolo, e se ne trovi uno scrivimi.</p>
       </div>
-      <div class="dl-main rv">
+      <div class="dl-main rv" id="dl-main">
         <div>
-          <h3>VoxelWorld-0.1.0-beta-completo.zip</h3>
-          <p>Dentro trovi il gioco (un unico file .jar con tutto), gli script di avvio per ogni sistema e un LEGGIMI.</p>
-          <div class="cta-row"><a class="btn" href="downloads/VoxelWorld-0.1.0-beta-completo.zip" download>Scarica il pacchetto · 14 MB</a></div>
-          <p style="margin:6px 0 0"><a href="downloads/VoxelWorld-0.1.0-beta.jar" download>Solo il file .jar (15 MB)</a> · <a href="downloads/LEGGIMI.txt">LEGGIMI</a></p>
-          <p class="sha">SHA-256 pacchetto: 8dbc0147d527b0a026976fda4f874e709192eb3193e5960078c1d39806791720</p>
+          <h3>Per <span data-os-name>il tuo computer</span></h3>
+          <p>Scegli il tuo sistema qui sotto. L'installer mette il gioco tra le tue app con la sua icona; i mondi si salvano nella tua cartella personale.</p>
+          <div class="cta-row" id="dl-cta"></div>
+          <p class="sha" id="dl-sha"></p>
         </div>
         <div>
           <div class="dl-facts">
-            <div><b>0.1.0 beta</b>versione</div><div><b>Gratis</b>prezzo</div>
-            <div><b>Java 17+</b>requisito</div><div><b>1–8</b>giocatori</div>
+            <div><b>0.2.0 beta</b>versione</div><div><b>Gratis</b>prezzo</div>
+            <div><b>Nessuno</b>Java da installare</div><div><b>1–8</b>giocatori</div>
           </div>
-          <p class="req">Serve <a href="https://adoptium.net" target="_blank" rel="noopener">Java 17 o più recente</a> (gratis). Una scheda grafica con OpenGL 3 e 4 GB di memoria bastano.</p>
+          <p class="req">Serve una scheda grafica con OpenGL 3 e 4 GB di memoria. macOS 12+, Windows 10+ o una Linux a 64 bit.</p>
         </div>
       </div>
-      <div class="os rv">
-        <article><h4>macOS</h4><ol><li>Estrai lo zip.</li><li>Doppio clic su <code>avvia.command</code> (oppure sul file <code>.jar</code>).</li><li>Se il sistema si ferma: clic destro → Apri.</li></ol></article>
-        <article><h4>Windows</h4><ol><li>Estrai lo zip.</li><li>Doppio clic su <code>avvia.bat</code> (oppure sul file <code>.jar</code>).</li><li>Se Windows avvisa, scegli «Esegui comunque».</li></ol></article>
-        <article><h4>Linux</h4><ol><li>Estrai lo zip.</li><li><code>chmod +x avvia.sh</code></li><li><code>./avvia.sh</code> (oppure <code>java -jar VoxelWorld-0.1.0-beta.jar</code>).</li></ol></article>
-      </div>
-      <p class="rv" style="margin-top:26px">Dopo l'avvio: guarda il <b>Tutorial animato</b> dal menu, crea il tuo eroe in <b>Personaggio</b> e apri un <b>Nuovo mondo</b>. In gioco <span class="kbd">F1</span> apre la guida. I mondi si salvano nella cartella <code>saves</code> accanto al gioco.</p>
+      <div class="os rv" id="dl-os"></div>
+      <details class="dl-sums rv"><summary>Impronte SHA-256 dei file (per controllare che il download sia integro)</summary><div id="dl-sums"></div></details>
+      <p class="rv" style="margin-top:26px">Dopo l'avvio: guarda il <b>Tutorial animato</b> dal menu, crea il tuo eroe in <b>Personaggio</b> e apri un <b>Nuovo mondo</b>. In gioco <span class="kbd">F1</span> apre la guida, <span class="kbd">F2</span> è la modalità foto. Hai già Java e preferisci il file unico? Nella sezione qui sopra trovi anche il pacchetto <b>con Java</b>.</p>
     </div>
   </section>
 
@@ -211,9 +370,9 @@
       <div class="wiki-tease rv">
         <a href="wiki/#/per-iniziare"><b>Per iniziare</b><span>I primi dieci minuti: controlli, creare l'eroe, primo mondo.</span></a>
         <a href="wiki/#/sopravvivenza"><b>Sopravvivenza</b><span>Schemi, Forgia, usura, clima, tomba, diario.</span></a>
+        <a href="wiki/#/villaggi"><b>Villaggi e missioni</b><span>Mestieri, prezzi, reputazione e ricompense.</span></a>
+        <a href="wiki/#/minerali"><b>Minerali</b><span>Dove si trovano e che poteri danno alle armi.</span></a>
         <a href="wiki/#/domini"><b>I sei Domini</b><span>Rito, effetti, tempi, danni e dove trovare le pergamene.</span></a>
-        <a href="wiki/#/ricette"><b>Ricette</b><span>166 ricette con ingredienti, banco e schema richiesto.</span></a>
-        <a href="wiki/#/boss"><b>Boss</b><span>Fasi, attacchi, bottino e come batterli.</span></a>
         <a href="wiki/#/console"><b>Comandi</b><span>La console di gioco, un comando alla volta.</span></a>
       </div>
     </div>
@@ -240,7 +399,7 @@
 
 <footer>
   <div class="wrap">
-    <span><b>CBOUQ</b> · Voxel World 0.1.0 beta</span>
+    <span><b>CBOUQ</b> · Voxel World 0.2.0 beta</span>
     <span>Fatto con blocchi, pazienza e notti insonni.</span>
     <a href="#top">↑ Torna su</a>
   </div>
@@ -254,5 +413,7 @@
 <script src="assets/js/pixel-font.js"></script>
 <script src="assets/js/voxel3d.js"></script>
 <script src="assets/js/home.js"></script>
+<script src="assets/js/download.js"></script>
+<script type="module" src="assets/js/main.js"></script>
 </body>
 </html>

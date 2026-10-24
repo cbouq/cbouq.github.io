@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Novità 0.2.0 beta — Voxel World</title>
+<meta name="description" content="Tutto quello che è cambiato in Voxel World dalla 0.1.0 beta alla 0.2.0 beta, voce per voce: villaggi, missioni, Eredità, minerali e armi, texture scure, interfaccia da film, nitidezza, installer senza Java.">
+<meta name="theme-color" content="#0a0912">
+<meta property="og:title" content="Novità 0.2.0 beta — Voxel World">
+<meta property="og:image" content="assets/img/hero-island.webp">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
+<link rel="stylesheet" href="assets/css/novita.css">
+</head>
+<body>
+<a class="skip" href="#log">Vai al contenuto</a>
+<header class="nav solid" id="nav">
+  <div class="wrap">
+    <a class="brand" href="./" aria-label="Voxel World, pagina iniziale"><i></i>VOXEL WORLD</a>
+    <button class="burger" id="burger" aria-label="Apri il menu" aria-expanded="false" aria-controls="menu"><span></span><span></span><span></span></button>
+    <ul id="menu">
+      <li><a href="./#gioco">Il gioco</a></li>
+      <li><a href="./#armeria">Armeria</a></li>
+      <li><a href="./#bestiario">Bestiario</a></li>
+      <li><a href="./#miniere">Miniere</a></li>
+      <li><a href="./#costruisci">Costruisci</a></li>
+      <li><a href="novita.html" aria-current="page">Novità</a></li>
+      <li><a href="wiki/">Wiki</a></li>
+      <li class="cta"><a class="btn sm" href="./#scarica">Scarica</a></li>
+    </ul>
+  </div>
+</header>
+
+<main>
+  <header class="log-hero">
+    <div class="wrap">
+      <span class="eyebrow">Registro delle novità</span>
+      <h1 class="px">Voxel World 0.2.0 <span class="badge">BETA</span></h1>
+      <p class="lead">Questo è l'elenco completo, voce per voce, di tutto quello che è cambiato dalla <b>0.1.0 beta</b> (21 ottobre 2026) a questa versione (24 ottobre 2026): il gioco, il sito, la wiki e il modo di installarlo.</p>
+      <div class="diff" aria-label="Il gioco in numeri, prima e dopo">
+        <div><small>Armi</small><b>31 → 97</b></div>
+        <div><small>Oggetti</small><b>104 → 214</b></div>
+        <div><small>Ricette</small><b>166 → 314</b></div>
+        <div><small>Creature e abitanti</small><b>42 → 50</b></div>
+        <div><small>Blocchi</small><b>258 → 267</b></div>
+        <div><small>Armature e gioielli</small><b>56 → 66</b></div>
+        <div><small>Imprese</small><b>77 → 92</b></div>
+        <div><small>Pagine della guida (F1)</small><b>10 → 11</b></div>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap log-layout" id="log">
+    <nav class="toc" aria-label="Indice">
+      <b>In questa pagina</b>
+      <a href="#sintesi">In breve</a>
+      <a href="#villaggi">Villaggi, mercanti, missioni</a>
+      <a href="#minerali">Minerali e armi</a>
+      <a href="#inventario">Armi nello zaino</a>
+      <a href="#eredita">Eredità</a>
+      <a href="#cinema">Interfaccia da film</a>
+      <a href="#texture">Texture scure</a>
+      <a href="#nitidezza">Nitidezza e foto</a>
+      <a href="#comfort">Comfort per gli occhi</a>
+      <a href="#correzioni">Correzioni</a>
+      <a href="#sito">Il sito e la wiki</a>
+      <a href="#installa">Installare senza Java</a>
+      <a href="#comandi">Comandi nuovi</a>
+      <a href="#tasti">Tasti nuovi</a>
+    </nav>
+
+    <div class="log">
+      <section id="sintesi">
+        <h2 class="px">In breve</h2>
+        <ul class="plain">
+          <li><b>Il mondo ha delle persone.</b> Villaggi e città murate con otto mestieri, mercato, missioni e ricompense.</li>
+          <li><b>Le armi si guadagnano scavando.</b> Nove minerali nuovi (quattro comuni e cinque cristalli rarissimi) e 97 armi, ognuna con il suo materiale e i suoi effetti.</li>
+          <li><b>Dopo il finale, il regno si risveglia.</b> L'Eredità: dieci gradi di sfida, nuovi frammenti e armi che si temprano fino a +5.</li>
+          <li><b>Si guarda meglio, per più tempo.</b> Texture scure e morbide, mondo disegnato a tutti i pixel dello schermo, modalità comfort, filtro caldo, modalità foto.</li>
+          <li><b>Si guarda anche meglio il sito.</b> Un'isola 3D con il villaggio vero, armeria, bestiario, miniere e un costruttore: tutto dal vero motore del gioco.</li>
+          <li><b>Si installa senza Java.</b> Un installer per sistema operativo, con il gioco e tutto il necessario dentro.</li>
+        </ul>
+      </section>
+
+      <section id="villaggi">
+        <h2 class="px">Villaggi, mercanti e missioni <small>Fase 31</small></h2>
+        <h3>I luoghi</h3>
+        <ul>
+          <li><b>Villaggi</b> (raggio 40) e <b>città murate</b> (raggio 60) generati nel mondo, con piazza e fontana, mercato a tendoni colorati, case, campi coltivati, torce lungo le strade. Sorgono sulle pianure, nelle savane, nelle taighe e nei deserti, e solo su terreno abbastanza piano.</li>
+          <li><b>Comando <code>/locate villaggio</code></b> e <code>/locate citta</code> per trovare il più vicino; la prima volta che ne scopri uno compare un cartello con il suo nome.</li>
+        </ul>
+        <h3>Le persone</h3>
+        <ul>
+          <li><b>Otto mestieri</b>, ognuno con il suo modello voxel e il suo modo di parlare: Anziano, Mercante, Fabbro, Oste, Contadino, Cacciatore, Guardia, Erborista.</li>
+          <li>Gli abitanti restano vicino a casa, non si fanno male e ti guardano quando ti avvicini; non compaiono mai nel mondo selvaggio.</li>
+          <li><b>Dialoghi cinematografici</b>: tasto destro su un abitante entro 5,5 blocchi; compaiono le barre da film, la camera si sposta in una doppia inquadratura, l'interfaccia di gioco scompare. Le risposte si scelgono con i numeri.</li>
+        </ul>
+        <h3>Il mercato</h3>
+        <ul>
+          <li><b>Monete</b>: una nuova valuta, un oggetto vero che si porta nello zaino.</li>
+          <li>Si <b>compra e si vende</b> in una finestra a due colonne (merce del villaggio, il tuo zaino). Clic = uno; clic destro = cinque se compri, tutta la pila se vendi.</li>
+          <li><b>Prezzi onesti</b>: si compra a un terzo sopra il valore, si vende al valore; ciò che vale una moneta si vende a zero, e nessun giro di acquisti e rivendite fa guadagnare (verificato dal test).</li>
+          <li><b>Reputazione per villaggio</b>: Straniero, Conosciuto (10), Amico (30), Eroe del villaggio (60). Sconti del 0, 5, 10 e 20%.</li>
+          <li>Ogni mestiere ha le sue merci e le sue specialità: il Fabbro compra metalli e armi, il Cacciatore pellicce e trofei, l'Erborista erbe e pozioni.</li>
+        </ul>
+        <h3>Le missioni</h3>
+        <ul>
+          <li><b>Cinque tipi</b>: caccia, consegna, creazione di un oggetto o di un'arma, esplorazione di una struttura, uccisione di un guardiano. Le difficoltà crescono con il tuo livello.</li>
+          <li><b>Ricompense</b>: monete, punti esperienza, reputazione e a volte un oggetto.</li>
+          <li><b>Fino a 8 missioni attive</b>; si seguono nel Libro dell'Eroe (nuova scheda <i>Missioni</i>) e in un <b>riquadro a schermo</b> che dice cosa fare e a chi tornare.</li>
+          <li>I progressi si contano da soli: uccisioni, oggetti creati, scoperte; le consegne si controllano nello zaino quando le consegni.</li>
+          <li>Tutto si salva insieme all'eroe.</li>
+          <li><b>Nove imprese nuove</b>: Un tetto sulla strada, Viandante dei cento borghi, Un buon affare, Mercante nato, Scrigno pieno, Lavoro svolto, Faccendiere, Eroe di mille favori, Un amico in paese.</li>
+        </ul>
+        <h3>Comandi e guida</h3>
+        <ul>
+          <li><code>/moneta n</code>, <code>/rep n</code>, <code>/locate villaggio|citta</code>; nuova pagina <i>Villaggi e missioni</i> nella guida (F1) e nella wiki.</li>
+        </ul>
+      </section>
+
+      <section id="minerali">
+        <h2 class="px">Minerali e armi <small>Fase 30</small></h2>
+        <h3>Nove minerali nuovi</h3>
+        <ul>
+          <li><b>Quattro comuni</b>: rame, stagno, argento, cobalto. Nella fornace 3 lingotti di rame + 1 di stagno danno 4 lingotti di <b>bronzo</b>; 1 di ferro + 2 carbone danno l'<b>acciaio</b>.</li>
+          <li><b>Cinque cristalli rarissimi</b>, ognuno solo in certe regioni del mondo (circa un terzo) e a una certa profondità: <b>fiammite</b> (fino a Y 26), <b>brinite</b> (Y 22–62), <b>voltite</b> (Y 28–80), <b>sanguinite</b> (fino a Y 34), <b>ombrite</b> (fino a Y 12, la più rara).</li>
+          <li>Le rarità sono calibrate su 400 pezzi di mondo: il rame è oltre mille volte più comune dell'ombrite.</li>
+          <li>Lingotti e cristalli diventano oggetti; si fondono nel forno; i cristalli rari si lavorano alla <b>Forgia runica</b>.</li>
+          <li>Il minerale che ti serve ora è visibile in 3D, alla profondità vera, nella <a href="./#miniere">zona Miniere</a> del sito.</li>
+        </ul>
+        <h3>97 armi (erano 31)</h3>
+        <ul>
+          <li><b>Sei famiglie</b> — spade, pugnali, asce, magli, lance, bastoni — in <b>quindici materiali</b>: legno, pietra, rame, bronzo, ferro, acciaio, argento, cobalto, mithril, fiammite, brinite, voltite, sanguinite, ombrite, scaglie di drago; più <b>sette armi dei guardiani</b>.</li>
+          <li><b>Niente armi d'oro né di diamante</b>: l'oro e il diamante restano gioielli e ricchezze.</li>
+          <li><b>Effetti dei cristalli</b>: <i>Fiamme</i> (ogni colpo brucia), <i>Gelo</i> (rallenta), <i>Tuono</i> (un fulmine salta ai nemici vicini), <i>Vampirismo</i> (ti rende vita), <i>Ombra</i> (il 25% dei colpi viene ripetuto, +45% di danno alle spalle).</li>
+          <li><b>Argento sacro</b>: le armi d'argento fanno il 60% di danno in più ai non morti.</li>
+          <li><b>Dieci gioielli rari</b> (anelli e amuleti) dei cristalli, con i loro bonus.</li>
+          <li>Le armi dei guardiani sono trofei: le trovi solo battendoli.</li>
+          <li>Tutte e 97, con modello 3D e numeri, nella <a href="./#armeria">Armeria</a> del sito e nella tabella della wiki.</li>
+        </ul>
+        <h3>Ricette e Artigiano</h3>
+        <ul>
+          <li>Le ricette passano da 166 a <b>314</b>: lingotti, leghe, ogni arma per ogni materiale, riparazioni.</li>
+          <li>L'Artigiano ha una <b>casella di ricerca</b> e i <b>filtri per famiglia</b> (spada, ascia, lancia…): con tante ricette serviva.</li>
+        </ul>
+      </section>
+
+      <section id="inventario">
+        <h2 class="px">Le armi nello zaino, la sopravvivenza da zero <small>Fase 30</small></h2>
+        <ul>
+          <li><b>Le armi sono oggetti</b>: stanno nella barra rapida e nello zaino insieme ai blocchi. La scheda <i>Armi</i> del libro non c'è più; l'arma che impugni è quella dello slot selezionato.</li>
+          <li><b><span class="kbd">Q</span></b> scambia con l'arma di prima; la rotella scorre i nove slot; il tempo di recupero dell'arma si vede sullo slot.</li>
+          <li><b>Usura per singola arma</b>: ogni pezzo ha la sua resistenza e si ripara per conto suo.</li>
+          <li><b>Creativo</b>: gruppo <i>Armi</i> nella tavolozza e una scheda con le statistiche di ogni arma; la spada parte nello slot 1.</li>
+          <li><b>Sopravvivenza da zero</b>: si comincia senza blocchi, armature né armi, tranne un kit minimo — una spada di legno, quattro torce e tre pani. Blocchi e materiali si scavano e si raccolgono.</li>
+          <li>Le armi trovate nei forzieri antichi e le reliquie finiscono nello zaino; i mondi creati con la 0.1.0 si <b>convertono da soli</b>.</li>
+        </ul>
+      </section>
+
+      <section id="eredita">
+        <h2 class="px">Eredità: il regno si risveglia <small>Fase 32</small></h2>
+        <ul>
+          <li><b>Come si sblocca</b>: dopo aver battuto il Re Eterno, l'Anziano di un villaggio offre <i>«Il risveglio del regno»</i>. Accettando, guardiani, sigilli e guarnigioni tornano.</li>
+          <li><b>Dieci gradi</b>, ognuno con un titolo: Erede, Custode, Campione, Paladino, Cavaliere Eterno, Signore dei Guardiani, Sovrano, Leggenda, Mito, Eterno.</li>
+          <li><b>Più dura</b>: ogni grado dà +35% di vita e +18% di danno a guardiani e guarnigioni, +10% e +6% ai mostri selvaggi. In cambio <b>+25% di esperienza</b> per ogni grado.</li>
+          <li><b>Frammenti d'Eredità</b>: li lasciano i guardiani (di più a ogni grado; il Re Eterno è il più generoso) e, dal secondo grado in poi, i capitani delle guarnigioni. Non si vendono.</li>
+          <li><b>Tempra</b>: il Fabbro porta un'arma da +1 a +5 in cambio di frammenti e monete. <b>Ogni livello: +10% di danno</b> e usura più lenta; il valore sale del 20%. Il livello massimo è 1 + il grado di Eredità (fino a +5).</li>
+          <li><b>Taglie</b>: dal primo grado, Guardia e Cacciatore mettono taglie sui guardiani, pagate in frammenti.</li>
+          <li><b>Sei imprese nuove</b> (Mano di fabbro, Un'arma da leggenda, Collezionista di eredità, L'Erede, Cavaliere Eterno, L'Eterno), comandi <code>/eredita</code> e <code>/frammenti</code>, e il titolo sul foglio dell'eroe.</li>
+        </ul>
+      </section>
+
+      <section id="cinema">
+        <h2 class="px">Interfaccia da film <small>Fase 33</small></h2>
+        <ul>
+          <li><b>Dissolvenze</b> ovunque: tra le schermate, all'ingresso nel mondo, quando si torna dopo una morte, dopo un teletrasporto, dopo una notte all'osteria.</li>
+          <li><b>Cartelli dei luoghi</b>: aprendo il mondo e ogni volta che entri in un bioma nuovo compare un titolo in basso a sinistra con il nome del posto, l'ora e il giorno. Non coprono mai il libro o un dialogo.</li>
+          <li><b>Il risveglio dei boss</b> ha le barre da film.</li>
+          <li><b>Barra della vita</b> con una scia che mostra quanto hai appena perso.</li>
+          <li>Il <b>Libro dell'Eroe</b> si apre con un'animazione morbida.</li>
+        </ul>
+      </section>
+
+      <section id="texture">
+        <h2 class="px">Texture scure e curate <small>Fasi 35 e 36</small></h2>
+        <h3>Perché</h3>
+        <p>Abbiamo misurato cosa rende stancante una texture. La neve era bianco pieno (1,00) e lana, quarzo e ghiaccio sfioravano il 0,95; la sabbia al sole bruciava; le superfici larghe avevano macchie «punto di riferimento» e un retino ordinato che l'occhio impara a riconoscere e trova ripetuto a ogni blocco.</p>
+        <h3>Tema scuro medievale (acceso di default)</h3>
+        <ul>
+          <li>Ogni facciata dei blocchi viene ricolorata: saturazione ridotta (×0,74), gamma più bassa (×0,78), verdi verso l'oliva, ombre fredde, luci ambrate; i pixel luminosi (torce, minerali) restano intatti.</li>
+          <li>Anche cielo e foschia seguono la stessa tinta; la neve è bianco-azzurro, non bianco.</li>
+          <li><b>Si cambia al volo</b> da Opzioni (casella «Texture scure») o con <code>/tema scuro</code> e <code>/tema classico</code>: le texture si ridipingono subito.</li>
+        </ul>
+        <h3>Cura delle texture</h3>
+        <ul>
+          <li>Erba, terra, pietra, sabbia, ghiaia, neve, argilla, netherrack e gli altri blocchi «calmi»: tolte quasi tutte le macchie grandi (dal colore e dal rilievo), retino ammorbidito, variazione limitata.</li>
+          <li><b>Le facce ruotano a caso</b> (otto orientamenti) per erba, terra, pietra, ciottoli, foglie…: il quadretto non si ripete più a scacchiera.</li>
+          <li><b>Niente più bruciature</b>: le luci sopra lo 0,78 si fondono verso l'1,0 con una curva morbida; con il tema scuro il bagliore (bloom) è più contenuto, senza saturazione né contrasto in più.</li>
+        </ul>
+      </section>
+
+      <section id="nitidezza">
+        <h2 class="px">Nitidezza e foto <small>Fase 37</small></h2>
+        <ul>
+          <li><b>Il mondo ora è disegnato a tutti i pixel dello schermo.</b> Sugli schermi ad alta densità (Retina, 4K) il mondo veniva composto a metà risoluzione e poi ingrandito: ecco il velo di sfocatura che vedevi. Adesso è nitido.</li>
+          <li><b>Scala di rendering</b> nelle opzioni (50–100%): per chi ha un computer più lento, un cursore che scambia un po' di nitidezza con più fluidità.</li>
+          <li><b>Modalità foto</b>: <span class="kbd">F2</span> nasconde l'interfaccia (restano gli effetti degli incantesimi); <span class="kbd">F12</span> salva uno <b>screenshot PNG</b> nella cartella <code>screenshots</code> accanto al gioco.</li>
+        </ul>
+      </section>
+
+      <section id="comfort">
+        <h2 class="px">Comfort per gli occhi <small>Fase 29</small></h2>
+        <ul>
+          <li><b>Modalità comfort</b> (Opzioni o <code>/comfort</code>): camera ferma (niente ondeggiamento, inclinazioni né zoom di corsa), luci più morbide negli incantesimi grandi e nei domini, e un promemoria <b>ogni 45 minuti</b> di giocare per distogliere lo sguardo.</li>
+          <li><b>Filtro caldo</b> da 0 a 100% che toglie il blu alla luce, con l'opzione «solo la sera» (dalle 19 alle 7 sull'orologio reale).</li>
+          <li><b>Riduci effetti</b>: attenua scosse e lampi; la modalità comfort lo comprende.</li>
+        </ul>
+      </section>
+
+      <section id="correzioni">
+        <h2 class="px">Correzioni</h2>
+        <ul>
+          <li><b>La Forgia runica non si poteva ottenere</b> nella 0.1.0: un errore nell'elenco dei raccolti la lasciava senza oggetto, e senza forgia le armi di mithril e drago erano irraggiungibili in sopravvivenza. Corretto.</li>
+          <li><b>L'eroe non cade più sotto il mondo all'avvio</b> (sparizione nei primi istanti dopo il caricamento).</li>
+          <li>Gli abitanti dei villaggi non nascono più per conto loro nel mondo selvaggio (erano 65 invece di 9 per partita di prova).</li>
+          <li>Le scelte dei dialoghi delle missioni non vengono più cancellate dalla frase del personaggio.</li>
+          <li>Nessun «giro d'oro» possibile al mercato: beni da una moneta si vendono a zero.</li>
+          <li>La barra della vita, i cartelli dei luoghi e i pannelli di dialogo non tagliano più il testo; il carattere del gioco non ha ×, «» né ✔: sostituiti con parole.</li>
+          <li>Il reticolo che si vedeva sulla pietra e sull'argilla è molto attenuato.</li>
+        </ul>
+      </section>
+
+      <section id="sito">
+        <h2 class="px">Il sito e la wiki</h2>
+        <ul>
+          <li><b>Pagina principale in 3D</b>: un'isola in volo con un villaggio generato dal motore del gioco, con le sue texture e i suoi abitanti; la telecamera ti porta dal mercante, dal fabbro, nella piazza, e arriva la notte con le torce. Trascina per girare, tocca un abitante.</li>
+          <li><b>Armeria</b>: tutte le 97 armi in 3D, con statistiche, effetti e dove trovare il materiale.</li>
+          <li><b>Bestiario</b>: creature, abitanti e guardiani in 3D: ti guardano, camminano.</li>
+          <li><b>Miniere</b>: una sezione di terra con strati, caverne, un pozzo e un lago di magma, con i minerali alla profondità vera; si scava con il clic.</li>
+          <li><b>Costruisci</b>: un'isola con una casetta e una tavolozza di blocchi veri, giorno e notte, annulla, foto.</li>
+          <li><b>Fluido e nitido</b>: ogni zona si carica solo quando ci si avvicina, disegna solo quando si vede, e abbassa da sola la risoluzione se il computer fatica; con «riduci movimento» attivo tutto resta fermo finché non lo tocchi.</li>
+          <li><b>Video dei domini rifatti</b> a 1080p e 60 fotogrammi al secondo, registrati dal gioco con un passo fisso (nessun fotogramma perso).</li>
+          <li><b>Wiki rigenerata</b> direttamente dal gioco: 97 armi, 214 oggetti, 314 ricette, 267 blocchi, 50 creature; più i nuovi dati su minerali, abitanti, Eredità e tempra; nuove pagine sui villaggi, i minerali, il comfort.</li>
+          <li><b>Strumenti</b>: <code>tools/export-site.sh</code> riesporta texture, modelli, villaggio e dati dal gioco in un comando: il sito non può più discostarsi dal gioco.</li>
+        </ul>
+      </section>
+
+      <section id="installa">
+        <h2 class="px">Installare senza Java</h2>
+        <ul>
+          <li>Per ogni sistema c'è un <b>installer</b> che porta con sé la sua copia di Java (un runtime ridotto, costruito apposta): non serve installare nulla prima.</li>
+          <li>Il gioco appare tra le tue app con la sua icona; i mondi si salvano nella cartella personale.</li>
+          <li>Il pacchetto con il file <code>.jar</code> resta, per chi ha già Java.</li>
+          <li>Le impronte SHA-256 sono scritte accanto a ogni download.</li>
+        </ul>
+        <p><a class="btn sm" href="./#scarica">Vai ai download</a></p>
+      </section>
+
+      <section id="comandi">
+        <h2 class="px">Comandi nuovi</h2>
+        <div class="tw"><table class="t">
+          <thead><tr><th>Comando</th><th>Cosa fa</th></tr></thead>
+          <tbody>
+            <tr><td><code>/locate villaggio</code> · <code>/locate citta</code></td><td>Indica il villaggio o la città più vicini.</td></tr>
+            <tr><td><code>/moneta n</code></td><td>Aggiunge n monete allo zaino (prove).</td></tr>
+            <tr><td><code>/rep n</code></td><td>Cambia la reputazione con il villaggio vicino.</td></tr>
+            <tr><td><code>/eredita [n | rinnova]</code></td><td>Mostra o imposta il grado di Eredità; <i>rinnova</i> risveglia il regno.</td></tr>
+            <tr><td><code>/frammenti n</code></td><td>Aggiunge n Frammenti d'Eredità (prove).</td></tr>
+            <tr><td><code>/comfort</code></td><td>Accende o spegne la modalità comfort.</td></tr>
+            <tr><td><code>/tema scuro | classico</code></td><td>Cambia il tema delle texture.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="tasti">
+        <h2 class="px">Tasti nuovi</h2>
+        <div class="tw"><table class="t">
+          <thead><tr><th>Tasto</th><th>Cosa fa</th></tr></thead>
+          <tbody>
+            <tr><td><span class="kbd">F2</span></td><td>Modalità foto: nasconde l'interfaccia.</td></tr>
+            <tr><td><span class="kbd">F12</span></td><td>Salva uno screenshot PNG.</td></tr>
+            <tr><td><span class="kbd">Q</span></td><td>Scambia con l'arma impugnata prima.</td></tr>
+            <tr><td>Tasto destro su un abitante</td><td>Parla (entro 5,5 blocchi).</td></tr>
+            <tr><td>Clic / clic destro nel mercato</td><td>Compra o vendi uno / compra cinque o vendi tutta la pila.</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <p class="log-foot">Hai trovato uno spigolo? Scrivimi: <a href="./#contatti">contatti</a>. Le <a href="wiki/#/per-iniziare">guide della wiki</a> spiegano tutto quello che è qui sopra.</p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span><b>CBOUQ</b> · Voxel World 0.2.0 beta</span>
+    <span>Fatto con blocchi, pazienza e notti insonni.</span>
+    <a href="#top">↑ Torna su</a>
+  </div>
+</footer>
+<script>
+(function () {
+  var nav = document.getElementById('nav'), burger = document.getElementById('burger');
+  burger.addEventListener('click', function () { var o = nav.classList.toggle('open'); burger.setAttribute('aria-expanded', o ? 'true' : 'false'); });
+  var links = [].slice.call(document.querySelectorAll('.toc a')), secs = links.map(function (a) { return document.querySelector(a.getAttribute('href')); });
+  function spy() { var y = scrollY + 140, cur = 0; secs.forEach(function (s, i) { if (s && s.offsetTop <= y) cur = i; }); links.forEach(function (a, i) { a.classList.toggle('on', i === cur); }); }
+  addEventListener('scroll', spy, { passive: true }); spy();
+})();
+</script>
+</body>
+</html>

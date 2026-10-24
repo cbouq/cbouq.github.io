@@ -48,16 +48,26 @@
 
   // gallery + lightbox
   var items = [
+    ['village-day', 'Il mercato di un villaggio, con l\'eroe in terza persona'],
     ['void-ritual', 'Il rito: l\'eroe si alza in volo prima del dominio'],
+    ['village-air', 'Un villaggio visto dall\'alto'],
     ['shrine-red', 'Santuario Malevolo: il cielo si tinge di rosso'],
+    ['ui-smith', 'Il fabbro tempra le armi con i Frammenti d\'Eredità'],
     ['biome-enchanted', 'Foresta incantata'],
+    ['dark-vs-classic', 'Texture classiche e texture scure, nello stesso posto'],
     ['fp-sword', 'La spada del Drago, in prima persona'],
+    ['ui-market', 'Il mercato: compri e vendi con le monete'],
     ['void-lights', 'Vuoto Infinito: le luci'],
+    ['ores-wall', 'I minerali nuovi, uno accanto all\'altro'],
     ['dojo', 'Un dojo tra i ciliegi'],
+    ['ui-quests', 'Un anziano ti affida le missioni'],
     ['ui-grimoire', 'Il Grimorio: da studiare e maestria'],
     ['citadel', 'La Cittadella del Re Eterno'],
+    ['ui-legacy', 'L\'Anziano può risvegliare il regno: l\'Eredità'],
     ['shrine-slashes', 'La tempesta di tagli'],
+    ['place-card', 'Il cartello del luogo, in stile film'],
     ['biome-plains', 'Pianure, con la terza persona a un tasto'],
+    ['ui-craft-weapons', 'L\'Artigiano con la ricerca e i filtri per le 97 armi'],
     ['fp-staff', 'La staffa di cristallo'],
     ['ui-sets', 'I set d\'armatura e i loro bonus'],
     ['menu-void', 'Il menu: un dominio al rallentatore'],
@@ -69,6 +79,7 @@
     ['hero-ritual', 'L\'eroe e il guardiano'],
     ['ui-imprese', 'Le Imprese']
   ];
+
   var gal = document.getElementById('gallery');
   items.forEach(function (it) {
     var b = document.createElement('button');

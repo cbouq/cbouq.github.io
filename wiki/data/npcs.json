@@ -1,0 +1,10 @@
+[
+{"id":"ELDER","name":"Anziano","text":"guida il villaggio e conosce ogni storia","trades":false,"quests":true,"mob":"VILLAGER_ELDER"},
+{"id":"MERCHANT","name":"Mercante","text":"compra e vende quasi ogni cosa","trades":true,"quests":true,"mob":"VILLAGER_MERCHANT"},
+{"id":"SMITH","name":"Fabbro","text":"forgia armi e armature e ripara quelle consumate","trades":true,"quests":true,"mob":"VILLAGER_SMITH"},
+{"id":"INNKEEPER","name":"Oste","text":"serve cibo caldo e un letto per la notte","trades":true,"quests":true,"mob":"VILLAGER_INNKEEPER"},
+{"id":"FARMER","name":"Contadino","text":"vende semi e raccolti, e ha sempre un lavoro per te","trades":true,"quests":true,"mob":"VILLAGER_FARMER"},
+{"id":"HUNTER","name":"Cacciatore","text":"compra pellicce e dà la caccia ai mostri","trades":true,"quests":true,"mob":"VILLAGER_HUNTER"},
+{"id":"GUARD","name":"Guardia","text":"vigila sul villaggio e chiede aiuto contro i mostri","trades":false,"quests":true,"mob":"VILLAGER_GUARD"},
+{"id":"HERBALIST","name":"Erborista","text":"vende pozioni e raccoglie erbe rare","trades":true,"quests":true,"mob":"VILLAGER_HERBALIST"}
+]

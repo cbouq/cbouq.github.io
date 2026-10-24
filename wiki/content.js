@@ -1,4 +1,4 @@
-/* Pagine scritte a mano della wiki (le tabelle vengono dai dati del gioco). Voxel World 0.1.0 beta. */
+/* Pagine scritte a mano della wiki (le tabelle vengono dai dati del gioco). Voxel World 0.2.0 beta. */
 window.WIKI_PAGES = {
 
 'per-iniziare': { title: 'Per iniziare', html: `
@@ -18,6 +18,7 @@ window.WIKI_PAGES = {
 <p class="intro">Tutti i comandi, esattamente come nella guida in gioco (<code>F1</code>).</p>
 <div data-guide="Comandi"></div>
 <div class="callout tip"><b>Trucchi di movimento.</b> Dopo circa un secondo di corsa passi a una vera corsa, più veloce. In aria tieni <code>Spazio</code> per planare. Contro un muro di due blocchi, <code>Spazio</code> ti arrampica. Il ghiaccio è scivoloso: frena in anticipo.</div>
+<div class="callout tip"><b>Novità.</b> <code>Q</code> scambia con l'arma impugnata prima, la rotella scorre i nove slot della barra (le armi stanno lì, insieme ai blocchi). <code>F2</code> nasconde l'interfaccia (modalità foto), <code>F12</code> salva uno screenshot PNG nella cartella <code>screenshots</code>. Tasto destro su un abitante di un villaggio per parlarci.</div>
 <div class="callout"><b>Con gli amici.</b> In multiplayer <code>T</code> è la chat: la terza persona si cambia con <code>F5</code>.</div>
 `},
 
@@ -96,7 +97,7 @@ window.WIKI_PAGES = {
 'sopravvivenza': { title: 'Guida alla sopravvivenza', html: `
 <p class="intro">In Sopravvivenza ogni cosa te la guadagni. Ecco come funziona tutto, nell'ordine in cui lo incontrerai.</p>
 <h2>Scavare e fabbricare</h2>
-<p>Tieni premuto il tasto sinistro su un blocco per romperlo: il tempo dipende dal blocco e dallo strumento (piccone per pietra e minerali, ascia per il legno, pala per terra e sabbia). Il blocco cade e lo raccogli camminandoci sopra. Gli strumenti si consumano. All'<b>Artigiano</b> (<code>E</code>) fabbrichi: assi, bastoni, banco da lavoro, fornace, picconi (legno, pietra, ferro, mithril), armi e armature. Le ricette migliori vogliono il banco o la fornace vicino.</p>
+<p>Si parte da zero: nello zaino hai solo una spada di legno, quattro torce e tre pani. Tutto il resto lo scavi e lo fabbrichi. Tieni premuto il tasto sinistro su un blocco per romperlo: il tempo dipende dal blocco e dallo strumento (piccone per pietra e minerali, ascia per il legno, pala per terra e sabbia). Il blocco cade e lo raccogli camminandoci sopra. Gli strumenti si consumano. All'<b>Artigiano</b> (<code>E</code>) fabbrichi: assi, bastoni, banco da lavoro, fornace, picconi (legno, pietra, ferro, mithril), armi e armature. Le ricette migliori vogliono il banco o la fornace vicino.</p>
 <h2>Fame e cibo</h2>
 <p>La fame cala col tempo e ancora di più correndo; senza cibo la salute non torna più e poi cala. Mangi con il tasto destro. La carne si cuoce nella fornace; stufati e dolci si fanno nella pentola da cucina e danno un effetto per qualche minuto. Coltivi con la zappa e i semi (erba alta, girasoli, funghi lunari…).</p>
 <h2>Alchimia</h2>
@@ -112,7 +113,9 @@ window.WIKI_PAGES = {
 <h2>Diario di Eldrin</h2>
 <p>Sedici pagine del diario dello scriba del re sono sparse nei forzieri, dai guardiani e in alcune imprese. Raccogliendo le prime quindici si apre il <b>Sigillo</b>: +15% di danno al Re Eterno e −15% di quello che ti fa. Vedi il <a href="#/diario">Diario</a>.</p>
 <h2>Caverne e luce</h2>
-<p>Sottoterra c'è carbone, ferro, oro, rosso, lapislazzuli, diamanti e mithril (i detriti antichi, solo in fondo). Il minerale migliore vuole un piccone migliore. Sotto la roccia è buio: le torce illuminano sul serio.</p>
+<p>Sottoterra c'è carbone, ferro, rame, stagno, argento, cobalto, oro, rosso, lapislazzuli, diamanti e i detriti antichi (solo in fondo), e in certe regioni i cinque <a href="#/minerali">cristalli rari</a>. Il minerale migliore vuole un piccone migliore. Sotto la roccia è buio: le torce illuminano sul serio.</p>
+<h2>Villaggi, monete e missioni</h2>
+<p>Nelle pianure, savane, taighe e deserti trovi <a href="#/villaggi">villaggi</a>: vi si compra e si vende con le monete, si accettano missioni e si fa amicizia per ottenere sconti. Dopo il Re Eterno, l'<a href="#/eredita">Eredità</a> risveglia il regno.</p>
 `},
 
 'clima': { title: 'Freddo e caldo', html: `
@@ -171,6 +174,10 @@ window.WIKI_PAGES = {
 <tr><td><code>/weapon &lt;arma&gt;|nessuna</code></td><td>Impugna un'arma senza requisiti</td></tr>
 <tr><td><code>/equip &lt;slot&gt; &lt;oggetto&gt;</code> · <code>/set &lt;nome&gt;</code> · <code>/strip</code></td><td>Equipaggia un pezzo · un set intero (viandante, ferro, mithril, drago, contadino, lino, seta, arcano, runico) · toglie tutto</td></tr>
 <tr><td><code>/locate [cripta|roccaforte|castello|rovine|cielo|cittadella|dojo]</code></td><td>Trova la struttura più vicina e ti dice dove andare (<code>/tp</code>); senza nome trova la prima che capita</td></tr>
+<tr><td><code>/locate villaggio</code> · <code>/locate citta</code></td><td>Trova il villaggio o la città murata più vicini</td></tr>
+<tr><td><code>/moneta [n]</code> · <code>/rep [n]</code></td><td>Aggiunge monete · cambia la reputazione con il villaggio vicino</td></tr>
+<tr><td><code>/eredita [n|rinnova]</code> · <code>/frammenti [n]</code></td><td>Mostra o imposta il grado di Eredità, o risveglia il regno · aggiunge Frammenti d'Eredità</td></tr>
+<tr><td><code>/comfort</code> · <code>/tema scuro|classico</code></td><td>Modalità comfort on/off · tema delle texture</td></tr>
 <tr><td><code>/boss osso|magma|gelo|palude|re</code></td><td>Genera un guardiano</td></tr>
 <tr><td><code>/trophies</code> · <code>/sigilli [n]</code> · <code>/finale</code></td><td>Sblocca i trofei · spezza i sigilli (3 svegliano il Re Eterno) · ti porta davanti alla Cittadella</td></tr>
 <tr><td><code>/clima</code> (<code>/temperatura</code>)</td><td>Mostra la temperatura del corpo e cosa la cambia (Sopravvivenza)</td></tr>
@@ -183,7 +190,10 @@ window.WIKI_PAGES = {
 
 'faq': { title: 'Domande frequenti', html: `
 <details class="faq"><summary>Dove si salvano i mondi?</summary><div>Nella cartella <code>saves</code> accanto al file del gioco. Per fare una copia, copia quella cartella. Il gioco salva da solo e anche dal menu di pausa.</div></details>
-<details class="faq"><summary>Il gioco non parte su Mac / Windows</summary><div>Serve Java 17 o più recente (<a href="https://adoptium.net" target="_blank" rel="noopener">adoptium.net</a>). Su Mac usa <code>avvia.command</code> (clic destro → Apri la prima volta); su Windows <code>avvia.bat</code>. Controlla che il driver grafico supporti OpenGL 3.</div></details>
+<details class="faq"><summary>Il gioco non parte</summary><div>Con l'installer (macOS, Windows, Linux) non serve Java: il gioco se lo porta dietro. Su Mac la prima volta usa clic destro → Apri; su Windows «Esegui comunque». Se usi il pacchetto con il <code>.jar</code> serve Java 17 o più recente (<a href="https://adoptium.net" target="_blank" rel="noopener">adoptium.net</a>). In ogni caso controlla che il driver grafico supporti OpenGL 3.</div></details>
+<details class="faq"><summary>Le texture mi sembrano troppo scure</summary><div>Sono scure apposta, per stancare meno gli occhi. In <i>Opzioni</i> togli la casella «Texture scure» oppure scrivi <code>/tema classico</code> nella console: si ridipingono subito. Vedi <a href="#/comfort">Comfort e nitidezza</a>.</div></details>
+<details class="faq"><summary>Dove finiscono gli screenshot?</summary><div><code>F12</code> li salva nella cartella <code>screenshots</code> accanto al gioco. <code>F2</code> nasconde l'interfaccia per una foto pulita.</div></details>
+<details class="faq"><summary>Il gioco va a scatti</summary><div>In <i>Opzioni</i> abbassa la «Scala di rendering» (50–100%) o la distanza di visuale: il mondo si disegna a meno pixel ma resta fluido.</div></details>
 <details class="faq"><summary>Come passo alla terza persona?</summary><div>Premi <code>T</code> (con gli amici, dove T è la chat, usa <code>F5</code>). <code>F6</code> cambia la spalla della camera.</div></details>
 <details class="faq"><summary>Perché non posso più volare?</summary><div>Il volo (doppio Spazio) è solo in Creativo. In Sopravvivenza hai la planata e le cavalcature volanti, come il Grifone Celeste.</div></details>
 <details class="faq"><summary>Perché non riesco a fabbricare la Forgia o le armi di mithril?</summary><div>Servono gli <a href="#/schemi">schemi</a>. Aprili nei forzieri delle cripte e roccaforti o sconfiggi i guardiani: le ricette bloccate dicono dove cercare.</div></details>
@@ -236,5 +246,77 @@ window.WIKI_PAGES = {
 
 'creature': { title: 'Creature', html: `
 <p class="intro">Animali, mostri e guardiani. I mostri compaiono soprattutto di notte e nelle caverne. Le creature con la voce «Cavalcatura» si possono domare: vedi <a href="#/cavalcature">Cavalcature</a>.</p>
+`},
+
+'villaggi': { title: 'Villaggi e missioni', html: `
+<p class="intro">Il mondo ha delle persone. Nelle pianure, nelle savane, nelle taighe e nei deserti sorgono <b>villaggi</b> (raggio 40) e <b>città murate</b> (raggio 60): piazza con fontana, mercato a tendoni colorati, case, campi, torce lungo le strade. Ci vivono otto mestieri.</p>
+<h2>Come li trovi</h2>
+<p><code>/locate villaggio</code> e <code>/locate citta</code> dicono dov'è il più vicino. La prima volta che ne scopri uno compare un cartello con il suo nome (e un'impresa).</p>
+<h2>Gli abitanti</h2>
+<p>Restano vicino a casa, sono invulnerabili e ti guardano quando passi. Tasto destro su uno di loro, entro 5,5 blocchi, e comincia il dialogo: barre da film, due inquadrature, le risposte si scelgono con i numeri.</p>
+<div data-table="npcs"></div>
+<h2>Il mercato</h2>
+<p>La valuta sono le <b>monete</b>, un oggetto vero che porti nello zaino. La finestra del mercato ha due colonne: la merce in vendita e il tuo zaino. Clic = uno; clic destro = cinque se compri, tutta la pila se vendi.</p>
+<ul>
+<li>Si <b>compra a un terzo sopra il valore</b> dell'oggetto e si <b>vende al suo valore</b>. Ciò che vale una moneta si vende a zero: non esiste un giro di acquisti e rivendite che faccia guadagnare.</li>
+<li>La <b>reputazione</b> è per villaggio e dà gli sconti: Straniero (0 punti) nessuno, Conosciuto (10) 5%, Amico (30) 10%, Eroe del villaggio (60) 20%.</li>
+<li>Ogni mestiere ha le sue specialità: il Fabbro compra metalli e armi, il Cacciatore pellicce e trofei, l'Erborista erbe e pozioni, il Contadino raccolti, l'Oste cibo.</li>
+<li>Un'arma usurata vale meno; una temprata vale il 20% in più per ogni livello.</li>
+</ul>
+<h2>Le missioni</h2>
+<p>Ogni abitante che dà incarichi ne propone alcuni, adatti al tuo livello. Cinque tipi:</p>
+<ul>
+<li><b>Caccia</b>: uccidi un certo numero di creature di una specie.</li>
+<li><b>Consegna</b>: porta oggetti; si contano dallo zaino al momento di consegnare.</li>
+<li><b>Creazione</b>: fabbrica un oggetto o un'arma precisi.</li>
+<li><b>Esplorazione</b>: raggiungi una struttura (cripta, roccaforte, rovine…).</li>
+<li><b>Guardiano</b>: sconfiggi uno dei boss (dal primo grado di <a href="#/eredita">Eredità</a> anche su taglia).</li>
+</ul>
+<p>Si pagano in <b>monete, punti esperienza, reputazione</b> e a volte un oggetto. Puoi tenere <b>otto missioni</b> alla volta: le segui nel Libro dell'Eroe (scheda <i>Missioni</i>) e in un riquadro a schermo che dice cosa fare e da chi tornare. I progressi si contano da soli.</p>
+<div class="callout tip"><b>Consiglio.</b> Prima di una lunga spedizione passa dal Cacciatore e dall'Anziano: le missioni di caccia e di esplorazione spesso coincidono con quello che farai comunque.</div>
+`},
+
+'abitanti': { title: 'Abitanti dei villaggi', html: `
+<p class="intro">Gli otto mestieri dei villaggi. Per saperne di più su come si parla, si commercia e si accettano missioni, leggi <a href="#/villaggi">Villaggi e missioni</a>.</p>
+`},
+
+'minerali': { title: 'Minerali', html: `
+<p class="intro">Nove minerali nuovi: quattro comuni che diventano le armi di tutti i giorni e cinque <b>cristalli rarissimi</b> che danno poteri alle armi. Le armi migliori nascono qui sotto.</p>
+<ul>
+<li><b>Rame e stagno</b> si fondono nel forno; <b>3 lingotti di rame + 1 di stagno</b> danno 4 lingotti di <b>bronzo</b>. <b>1 lingotto di ferro + 2 carbone</b> danno un lingotto d'<b>acciaio</b>: entrambe le leghe si fanno nella fornace.</li>
+<li><b>Argento</b>: armi che fanno il 60% di danno in più ai non morti (argento sacro). <b>Cobalto</b>: il metallo più duro tra i comuni.</li>
+<li><b>Cristalli rari</b> (fiammite, brinite, voltite, sanguinite, ombrite): compaiono solo in <b>regioni</b> grandi come un terzo del mondo, a profondità precise; si lavorano alla <a href="#/schemi">Forgia runica</a> e danno un effetto a ogni colpo: fiamme, gelo, tuono a catena, vampirismo, ombra.</li>
+<li>Dieci anelli e amuleti rari portano gli stessi poteri senza impugnare l'arma.</li>
+</ul>
+<div class="callout tip"><b>Come cercarli.</b> Scava in profondità vicino a grandi caverne; il piccone deve essere del grado giusto (vedi colonna «Grado minimo» nella tabella dei <a href="#/blocchi">blocchi</a>). Se in una zona non trovi cristalli, cambia regione: sono rari proprio perché sono a macchia.</div>
+`},
+
+'eredita': { title: 'Eredità', html: `
+<p class="intro">Dopo aver battuto il Re Eterno, l'Anziano di un villaggio può <b>risvegliare il regno</b>: guardiani, sigilli e guarnigioni tornano, più forti. Il mondo ti paga meglio per questo. Il grado di Eredità va da 1 a 10.</p>
+<ul>
+<li><b>Più dura</b>: ogni grado dà +35% di vita e +18% di danno a guardiani e guarnigioni, +10% e +6% ai mostri selvaggi.</li>
+<li><b>Più generosa</b>: +25% di esperienza per ogni grado. I guardiani lasciano <b>Frammenti d'Eredità</b> (il Re Eterno più di tutti); dal secondo grado anche i capitani delle guarnigioni, ogni tanto. I frammenti non si vendono.</li>
+<li><b>Tempra</b>: il Fabbro porta un'arma fino a +5 in cambio di frammenti e monete. Ogni livello dà <b>+10% di danno</b> e un'usura più lenta. Il livello massimo che accetta è 1 + il grado di Eredità.</li>
+<li><b>Taglie</b>: dal primo grado Guardia e Cacciatore mettono taglie sui guardiani, pagate in frammenti.</li>
+</ul>
+<h2>La tempra, livello per livello</h2>
+<div data-table="temper"></div>
+<h2>I dieci gradi</h2>
+`},
+
+'comfort': { title: 'Comfort e nitidezza', html: `
+<p class="intro">Il gioco è fatto per essere giocato a lungo. Queste impostazioni (<i>Opzioni</i> del menu) servono a stancare meno gli occhi.</p>
+<h2>Texture scure</h2>
+<p>Di default le texture sono scure e morbide: saturazione ridotta, verdi verso l'oliva, ombre fredde e luci ambrate; la neve non è più bianco puro e le superfici larghe non hanno più macchie che si ripetono. Le facce dei blocchi naturali ruotano a caso, così il disegno non si vede come una scacchiera. Per tornare a quelle classiche togli la casella «Texture scure» o scrivi <code>/tema classico</code>: si ridipingono subito.</p>
+<h2>Modalità comfort</h2>
+<p>Camera ferma (niente ondeggiamento, inclinazioni né zoom di corsa), luci più morbide negli incantesimi grandi e nei domini, e un promemoria ogni 45 minuti per distogliere lo sguardo dallo schermo. <code>/comfort</code> la accende e la spegne.</p>
+<h2>Filtro caldo</h2>
+<p>Toglie il blu dalla luce, da 0 a 100%. Con «solo la sera» si attiva dalle 19 alle 7 sull'orologio del computer.</p>
+<h2>Riduci effetti</h2>
+<p>Attenua le scosse della camera e i lampi delle magie grandi. La modalità comfort lo comprende.</p>
+<h2>Nitidezza e fluidità</h2>
+<p>Il mondo è disegnato a <b>tutti i pixel dello schermo</b>, anche sugli schermi ad alta densità. Se il computer fatica, la <b>Scala di rendering</b> (50–100%) disegna meno pixel e ingrandisce: più fluidità, un po' meno nitidezza. Anche la distanza di visuale pesa molto.</p>
+<h2>Modalità foto</h2>
+<p><code>F2</code> nasconde l'interfaccia (restano gli effetti delle magie), <code>F12</code> salva uno screenshot PNG nella cartella <code>screenshots</code> accanto al gioco. In terza persona (<code>T</code>) puoi fotografare anche l'eroe.</p>
 `},
 };

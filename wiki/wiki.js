@@ -38,14 +38,19 @@
     razze: { title: 'Razze', data: 'races', cols: [['name', 'Razza'], ['mods', 'Modificatori'], ['text', 'Descrizione']] },
     biomi: { title: 'Biomi', data: 'biomes', cols: [['name', 'Bioma'], ['temperature', 'Temperatura (−1 gelo, +1 torrido)']] },
     schemi: { title: 'Schemi', data: 'blueprints', cols: [['name', 'Schema'], ['text', 'Cosa apre'], ['where', 'Dove trovarlo']] },
+    minerali: { title: 'Minerali', data: 'minerals', filters: ['province'],
+      cols: [['name', 'Minerale'], ['material', 'Materiale'], ['minY', 'Da Y'], ['maxY', 'A Y'], ['per100', 'Pezzi ogni 100 chunk'], ['province', 'Solo in certe regioni'], ['special', 'Effetto sulle armi'], ['bestDamage', 'Danno max'], ['tool', 'Strumento']],
+      detail: function (r) { return chips([['Durezza', r.hardness, ''], ['Grado minimo', r.minTier, 'g']]) + (r.specialText ? '<p><b>' + esc(r.special) + ':</b> ' + esc(r.specialText) + '</p>' : '') + '<p><b>Armi:</b> ' + list(r.makes) + '</p>'; } },
+    abitanti: { title: 'Abitanti dei villaggi', data: 'npcs', cols: [['name', 'Mestiere'], ['trades', 'Commercia'], ['quests', 'Dà missioni'], ['text', 'Cosa fa']] },
+    eredita: { title: 'Eredità', data: 'legacy', cols: [['rank', 'Grado'], ['title', 'Titolo'], ['garrisonHealth', 'Vita guardiani ×'], ['garrisonDamage', 'Danno guardiani ×'], ['wildHealth', 'Vita mostri ×'], ['wildDamage', 'Danno mostri ×'], ['xp', 'Esperienza ×'], ['maxTemper', 'Tempra max']] },
     diario: { title: 'Diario di Eldrin', data: 'lore', cols: [['name', 'Pagina'], ['text', 'Testo (contiene spoiler)']] }
   };
 
   /* Menu a sinistra. Le chiavi sono pagine scritte a mano (content.js) o dataset. */
   var NAV = [
     ['Inizia', [['home', 'Benvenuto'], ['per-iniziare', 'Per iniziare'], ['controlli', 'Controlli'], ['modalita', 'Creativo e Sopravvivenza'], ['faq', 'Domande frequenti'], ['guida', 'Guida del gioco (F1)']]],
-    ['Il mondo', [['biomi', 'Biomi'], ['strutture', 'Strutture e regni'], ['boss', 'Guardiani e boss'], ['creature', 'Creature'], ['cavalcature', 'Cavalcature'], ['blocchi', 'Blocchi'], ['oggetti', 'Oggetti'], ['ricette', 'Ricette']]],
-    ['L\'eroe', [['classi', 'Classi'], ['razze', 'Razze'], ['combattimento', 'Combattimento'], ['arti', 'Arti marziali'], ['armi', 'Armi'], ['armature', 'Armature'], ['set', 'Set e bonus'], ['imprese', 'Imprese']]],
+    ['Il mondo', [['villaggi', 'Villaggi e missioni'], ['abitanti', 'Abitanti'], ['minerali', 'Minerali'], ['biomi', 'Biomi'], ['strutture', 'Strutture e regni'], ['boss', 'Guardiani e boss'], ['creature', 'Creature'], ['cavalcature', 'Cavalcature'], ['blocchi', 'Blocchi'], ['oggetti', 'Oggetti'], ['ricette', 'Ricette']]],
+    ['L\'eroe', [['eredita', 'Eredità'], ['comfort', 'Comfort e nitidezza'], ['classi', 'Classi'], ['razze', 'Razze'], ['combattimento', 'Combattimento'], ['arti', 'Arti marziali'], ['armi', 'Armi'], ['armature', 'Armature'], ['set', 'Set e bonus'], ['imprese', 'Imprese']]],
     ['Magia', [['magia', 'Guida alla magia'], ['incantesimi', 'Incantesimi'], ['domini', 'I sei Domini']]],
     ['Sopravvivenza', [['sopravvivenza', 'Guida alla sopravvivenza'], ['schemi', 'Schemi e Forgia'], ['clima', 'Freddo e caldo'], ['usura', 'Usura e riparazioni'], ['diario', 'Diario di Eldrin']]],
     ['Avanzate', [['multiplayer', 'Multiplayer'], ['console', 'Console e comandi']]]
@@ -143,6 +148,12 @@
       });
       return simpleTable(['Dominio', 'Livello', 'Requisito', 'Mana / Stamina', 'Recupero', 'Durata', 'Raggio', 'Pergamena dal boss'], rows);
     },
+    npcs: function () {
+      return simpleTable(['Mestiere', 'Cosa fa', 'Commercia', 'Dà missioni'], (D.npcs || []).map(function (n) { return [esc(n.name), esc(n.text), n.trades ? 'sì' : '—', n.quests ? 'sì' : '—']; }));
+    },
+    temper: function () {
+      return simpleTable(['Livello', 'Frammenti', 'Danno', 'Usura'], (D.temper || []).map(function (t) { return ['+' + t.from + ' → +' + t.to, t.shards, '+' + Math.round((t.damage - 1) * 100) + '%', '×' + t.wear]; }));
+    },
     arts: function () {
       return simpleTable(['Arte', 'Cos\'è'], (D.arts || []).map(function (a) { return [esc(a.name), esc(a.text)]; }));
     }
@@ -168,8 +179,8 @@
 
   function home() {
     var cards = Object.keys(DATASETS).map(function (k) { var d = DATASETS[k]; var n = d.data ? (D[d.data] || []).length : (D[d.view === 'sets' ? 'sets' : 'bosses'] || []).length; return '<a class="card" href="#/' + k + '"><h3>' + d.title + '</h3><div class="sub">' + n + ' voci</div></a>'; }).join('');
-    var feat = [['per-iniziare', 'Per iniziare', 'i primi dieci minuti'], ['controlli', 'Controlli', 'tutti i tasti'], ['sopravvivenza', 'Guida alla sopravvivenza', 'fame, schemi, tomba'], ['magia', 'Guida alla magia', 'scuole, mana, maestria'], ['domini', 'I sei Domini', 'le mosse definitive'], ['combattimento', 'Combattimento', 'parate e schivate'], ['faq', 'Domande frequenti', 'problemi e trucchi'], ['console', 'Console e comandi', 'strumenti di prova']];
-    doc.innerHTML = '<h1>Wiki di Voxel World</h1><p class="intro">Tutto quello che c\'è nel gioco, con i numeri veri (esportati dal gioco stesso, versione 0.1.0 beta). Usa l\'indice a sinistra o la ricerca in alto.</p>' +
+    var feat = [['per-iniziare', 'Per iniziare', 'i primi dieci minuti'], ['controlli', 'Controlli', 'tutti i tasti'], ['sopravvivenza', 'Guida alla sopravvivenza', 'fame, schemi, tomba'], ['magia', 'Guida alla magia', 'scuole, mana, maestria'], ['domini', 'I sei Domini', 'le mosse definitive'], ['combattimento', 'Combattimento', 'parate e schivate'], ['villaggi', 'Villaggi e missioni', 'mestieri, prezzi, reputazione'], ['eredita', 'Eredità', 'il regno si risveglia'], ['faq', 'Domande frequenti', 'problemi e trucchi'], ['console', 'Console e comandi', 'strumenti di prova']];
+    doc.innerHTML = '<h1>Wiki di Voxel World</h1><p class="intro">Tutto quello che c\'è nel gioco, con i numeri veri (esportati dal gioco stesso, versione 0.2.0 beta). Usa l\'indice a sinistra o la ricerca in alto.</p>' +
       '<h2>Guide</h2><div class="cardgrid">' + feat.map(function (f) { return '<a class="card" href="#/' + f[0] + '"><h3>' + f[1] + '</h3><div class="sub">' + f[2] + '</div></a>'; }).join('') + '</div>' +
       '<h2>Tutti i dati</h2><div class="cardgrid">' + cards + '</div>';
   }

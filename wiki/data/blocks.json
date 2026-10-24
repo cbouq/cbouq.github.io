@@ -256,5 +256,14 @@
 {"id":"MOON_1","name":"Bacca lunare (germoglio)","hardness":0,"tool":null,"minTier":0,"breakable":true,"plant":true,"water":false},
 {"id":"MOON_2","name":"Bacca lunare (giovane)","hardness":0,"tool":null,"minTier":0,"breakable":true,"plant":true,"water":false},
 {"id":"MOON_3","name":"Bacca lunare (matura)","hardness":0,"tool":null,"minTier":0,"breakable":true,"plant":true,"water":false},
-{"id":"FORGE","name":"Forgia runica","hardness":4.5,"tool":"Piccone","minTier":1,"breakable":true,"plant":false,"water":false}
+{"id":"FORGE","name":"Forgia runica","hardness":4.5,"tool":"Piccone","minTier":1,"breakable":true,"plant":false,"water":false},
+{"id":"COPPER_ORE","name":"Minerale di rame","hardness":3,"tool":"Piccone","minTier":1,"breakable":true,"plant":false,"water":false},
+{"id":"TIN_ORE","name":"Minerale di stagno","hardness":3,"tool":"Piccone","minTier":1,"breakable":true,"plant":false,"water":false},
+{"id":"SILVER_ORE","name":"Minerale d'argento","hardness":3.5,"tool":"Piccone","minTier":2,"breakable":true,"plant":false,"water":false},
+{"id":"COBALT_ORE","name":"Minerale di cobalto","hardness":4,"tool":"Piccone","minTier":3,"breakable":true,"plant":false,"water":false},
+{"id":"FIAMMITE_ORE","name":"Vena di fiammite","hardness":5,"tool":"Piccone","minTier":3,"breakable":true,"plant":false,"water":false},
+{"id":"BRINITE_ORE","name":"Vena di brinite","hardness":5,"tool":"Piccone","minTier":3,"breakable":true,"plant":false,"water":false},
+{"id":"VOLTITE_ORE","name":"Vena di voltite","hardness":5,"tool":"Piccone","minTier":3,"breakable":true,"plant":false,"water":false},
+{"id":"SANGUINITE_ORE","name":"Vena di sanguinite","hardness":5.5,"tool":"Piccone","minTier":3,"breakable":true,"plant":false,"water":false},
+{"id":"OMBRITE_ORE","name":"Vena di ombrite","hardness":7,"tool":"Piccone","minTier":4,"breakable":true,"plant":false,"water":false}
 ]

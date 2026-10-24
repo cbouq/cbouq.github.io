@@ -1,0 +1,7 @@
+[
+{"from":0,"to":1,"shards":2,"damage":1.1,"wear":0.87},
+{"from":1,"to":2,"shards":4,"damage":1.2,"wear":0.77},
+{"from":2,"to":3,"shards":6,"damage":1.3,"wear":0.69},
+{"from":3,"to":4,"shards":8,"damage":1.4,"wear":0.63},
+{"from":4,"to":5,"shards":10,"damage":1.5,"wear":0.57}
+]
