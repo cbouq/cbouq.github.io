@@ -104,6 +104,20 @@ async function zone(id, loader, extra) {
 }
 zone('#armory', () => import('./3d/armory.js'), (el, assets, mod) => mod.initArmory(el, assets));
 zone('#bestiary', () => import('./3d/bestiary.js'), (el, assets, mod) => mod.initBestiary(el, assets));
+zone('#dojo', () => import('./3d/island.js'), async (el, assets, mod) => {
+  const isl = await mod.createIsland($('#dojo-host'), assets, { file: 'dojo.json', keys: mod.DOJO_KEYS, auto: true });
+  const card = $('#dojo-card');
+  isl.onNpc((role, info) => {
+    if (!info) return;
+    card.innerHTML = '<div class="j-card"><h4>' + info[0] + '</h4><p>' + info[1] + '</p><button class="btn sm ghost" type="button">Chiudi</button></div>';
+    card.classList.add('on');
+    card.querySelector('button').addEventListener('click', () => card.classList.remove('on'));
+  });
+  const tn = $('#dojo-time');
+  let night = null;
+  if (tn) tn.addEventListener('click', () => { night = night === null ? true : night === true ? false : null; isl.setTime(night === null ? null : night ? 0.82 : 0.3); tn.textContent = night === null ? 'Ora: automatica' : night ? 'Ora: notte' : 'Ora: giorno'; tn.classList.toggle('on', night !== null); });
+  return isl;
+});
 
 // ---------------------------------------------------------------------------------------------------- le miniere
 const mineSec = $('#miniere');

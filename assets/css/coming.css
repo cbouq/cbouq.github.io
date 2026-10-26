@@ -1,0 +1,31 @@
+/* Prossimamente: le tre grandi novità in arrivo (ULTRA-CREATIVE, modalità D&D, modalità zombie). */
+.soon { position: relative; background: radial-gradient(ellipse at 15% 0, #22143f 0, transparent 60%), radial-gradient(ellipse at 90% 100%, #0e2a2f 0, transparent 55%), var(--bg2); border-block: 1px solid var(--line); overflow: hidden; }
+.soon::before { content: ''; position: absolute; inset: 0; background-image: radial-gradient(1px 1px at 12% 22%, #fff9, transparent), radial-gradient(1px 1px at 38% 70%, #fff7, transparent), radial-gradient(1.5px 1.5px at 66% 30%, #ffe9a8aa, transparent), radial-gradient(1px 1px at 84% 62%, #fff8, transparent), radial-gradient(1px 1px at 52% 12%, #9fe8ff99, transparent), radial-gradient(1px 1px at 92% 18%, #fff6, transparent); opacity: .7; pointer-events: none; }
+.soon .wrap { position: relative; }
+.soon-grid { display: grid; gap: clamp(18px, 2.4vw, 30px); grid-template-columns: repeat(3, minmax(0, 1fr)); align-items: stretch; }
+.soon-card { --a: var(--gold); --b: var(--amber); position: relative; display: flex; flex-direction: column; background: linear-gradient(180deg, #171230, #100d22); border: 2px solid var(--line); padding: 26px 24px 24px; isolation: isolate; transition: transform .25s, border-color .25s, box-shadow .25s; }
+.soon-card::before { content: ''; position: absolute; inset: -2px; z-index: -1; background: conic-gradient(from var(--spin, 0deg), transparent 0 55%, var(--a) 72%, transparent 88%); opacity: .0; transition: opacity .3s; animation: soonSpin 6s linear infinite; }
+.soon-card:hover { transform: translateY(-4px); border-color: transparent; box-shadow: 0 18px 40px #0009, 0 0 28px color-mix(in srgb, var(--a) 28%, transparent); }
+.soon-card:hover::before { opacity: 1; }
+.soon-card::after { content: ''; position: absolute; inset: 0; z-index: -1; background: linear-gradient(180deg, #171230, #100d22); margin: 2px; }
+@property --spin { syntax: '<angle>'; inherits: false; initial-value: 0deg; }
+@keyframes soonSpin { to { --spin: 360deg; } }
+.soon-card.creative { --a: var(--cyan); --b: #2aa0c8; }
+.soon-card.dnd { --a: #c79bff; --b: #7a4ad8; }
+.soon-card.zombie { --a: #8ff06a; --b: #3f9a2c; }
+.soon-tag { align-self: flex-start; font: 9px/1 var(--font-pixel); letter-spacing: .1em; color: #14100a; background: linear-gradient(var(--a), var(--b)); padding: 7px 9px; box-shadow: 2px 2px 0 #000a; margin-bottom: 18px; }
+.soon-card .ico { width: 84px; height: 84px; margin-bottom: 14px; filter: drop-shadow(0 0 14px color-mix(in srgb, var(--a) 45%, transparent)); image-rendering: pixelated; }
+.soon-card h3 { font: clamp(13px, 1.5vw, 17px)/1.6 var(--font-pixel); color: var(--a); text-shadow: 3px 3px 0 #0008; margin: 0 0 12px; }
+.soon-card p { color: #ddd8ec; font-size: .98rem; }
+.soon-card ul { list-style: none; padding: 0; margin: 4px 0 16px; display: grid; gap: 9px; }
+.soon-card li { position: relative; padding-left: 24px; color: #cfc9e2; font-size: .94rem; line-height: 1.5; }
+.soon-card li::before { content: ''; position: absolute; left: 2px; top: .5em; width: 9px; height: 9px; background: var(--a); box-shadow: 2px 2px 0 #000a; }
+.soon-card li b { color: #fff; font-weight: 600; }
+.soon-card .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 2px 0 16px; }
+.soon-card .chips span { font: 600 11px/1 ui-monospace, Menlo, Consolas, monospace; color: var(--a); border: 1px solid color-mix(in srgb, var(--a) 55%, transparent); background: color-mix(in srgb, var(--a) 9%, transparent); padding: 6px 8px; letter-spacing: .04em; }
+.soon-card .foot { margin-top: auto; font-size: .82rem; color: var(--faint); border-top: 1px dashed var(--line); padding-top: 12px; }
+.soon-note { margin-top: clamp(22px, 3vw, 34px); display: flex; gap: 14px; align-items: center; flex-wrap: wrap; color: var(--muted); font-size: .95rem; }
+.soon-note .pulse { width: 10px; height: 10px; background: var(--gold); box-shadow: 0 0 0 0 #ffd36a88; animation: soonPulse 1.8s infinite; }
+@keyframes soonPulse { 70% { box-shadow: 0 0 0 12px #ffd36a00; } 100% { box-shadow: 0 0 0 0 #ffd36a00; } }
+@media (max-width: 980px) { .soon-grid { grid-template-columns: 1fr; } .soon-card { max-width: 640px; } }
+@media (prefers-reduced-motion: reduce) { .soon-card::before, .soon-note .pulse { animation: none; } }

@@ -15,8 +15,27 @@ export const NPC_INFO = {
   FARMER: ['Contadino', 'Semi e raccolti, e sempre un lavoro per te. Ti paga in monete e in pane.'],
   HUNTER: ['Cacciatore', 'Pellicce, lance e storie di bestie. Compra i trofei e ti manda sulle tracce dei lupi.'],
   GUARD: ['Guardia', 'Vigila sul villaggio. Chiede aiuto contro i mostri e, dopo il risveglio del regno, mette taglie sui guardiani.'],
-  HERBALIST: ['Erborista', 'Pozioni ed erbe rare. Per gli eroi del villaggio prepara anche l\'Elisir della Fenice.']
+  HERBALIST: ['Erborista', 'Pozioni ed erbe rare. Per gli eroi del villaggio prepara anche l\'Elisir della Fenice.'],
+  BAKER: ['Fornaio', 'Pane, torte e dolci ogni mattina. Compra grano e zucche, e per un amico tiene da parte la pagnotta più dorata.'],
+  CARPENTER: ['Falegname', 'Legname di ogni bosco, vetro e travi. Compra i tuoi tronchi e paga i lavori con un buon attrezzo.'],
+  PRIEST: ['Sacerdote', 'Una benedizione per poche monete: salute piena, rigenerazione e un po\' di fortuna. Manda a cercare erbe pure e a placare le creature dell\'ombra.'],
+  BARD: ['Bardo', 'Una canzone per qualche moneta ti dà vigore, e le sue leggende valgono il viaggio. La sera suona alla locanda.'],
+  CITIZEN: ['Abitante', 'Tessitori, pescatori, vasai: ognuno ha un mestiere e un pettegolezzo. Di sera si ritrovano sulla piazza, di notte dormono a casa.'],
+  CHILD: ['Bambino', 'Corre per la piazza e fa mille domande. Di notte è già a letto.'],
+  DISCIPLE: ['Allievo', 'Si allena nel dojo: colpisce i manichini, combatte sul tatami o medita davanti al maestro.'],
+  SENSEI: ['Maestro', 'Insegna le arti marziali e mette alla prova chi se la sente. Chi vince il duello ottiene il suo riconoscimento.']
 };
+
+/** A slow tour of the dojo: the gate, the garden and the sparring floor, the hall, the pond, the bell tower at dusk, and back to the gate. */
+export const DOJO_KEYS = [
+  { p: 0.00, tgt: [0, 5, 8], az: 10, dist: 46, elev: 22, fov: 42, time: 0.30 },
+  { p: 0.17, tgt: [0, 3, 5], az: 40, dist: 20, elev: 26, fov: 46, time: 0.34 },
+  { p: 0.34, tgt: [0, 6, -12], az: -25, dist: 34, elev: 20, fov: 44, time: 0.42 },
+  { p: 0.52, tgt: [-15, 2, 12], az: 130, dist: 22, elev: 24, fov: 48, time: 0.54 },
+  { p: 0.70, tgt: [15, 7, 14], az: 200, dist: 30, elev: 18, fov: 46, time: 0.66 },
+  { p: 0.86, tgt: [0, 6, -4], az: 250, dist: 44, elev: 22, fov: 42, time: 0.88 },
+  { p: 1.00, tgt: [0, 5, 8], az: 370, dist: 46, elev: 22, fov: 42, time: 0.30 }
+];
 
 const TERRAIN = new Set(['GRASS', 'DIRT', 'STONE', 'SAND', 'GRAVEL', 'COARSE_DIRT', 'PODZOL', 'CLAY', 'SNOW', 'SANDSTONE', 'RED_SAND', 'MUD', 'PACKED_MUD', 'ROOTED_DIRT', 'SAVANNA_GRASS', 'JUNGLE_GRASS', 'CHERRY_GRASS', 'ENCHANTED_GRASS']);
 
@@ -28,7 +47,7 @@ function glowTexture() {
   const t = new THREE.CanvasTexture(c); t.colorSpace = THREE.SRGBColorSpace; return t;
 }
 
-export async function createIsland(host, assets) {
+export async function createIsland(host, assets, opts = {}) {
   const view = new View(host, { fov: 42, far: 1400, maxDpr: 2 });
   const { scene, camera, renderer } = view;
   renderer.shadowMap.enabled = true;
@@ -36,7 +55,8 @@ export async function createIsland(host, assets) {
   const sky = new Sky(scene, { dark: true });
 
   // ------------------------------------------------------------------ the island: the village, cut round and carved underneath
-  const village = await loadJson('village.json');
+  const village = await loadJson(opts.file || 'village.json');
+  if (opts.file === 'dojo.json') village.dojo = true;
   const src = worldFromVillage(village);
   const PAD = 28, W = src.W, D = src.D, H = src.H + PAD;
   const grid = new Uint16Array(W * H * D);
@@ -110,27 +130,52 @@ export async function createIsland(host, assets) {
   const lamps = [];
   for (let i = 0; i < 5; i++) { const l = new THREE.PointLight(0xffa850, 0, 18, 1.5); scene.add(l); lamps.push(l); }
 
-  // ------------------------------------------------------------------ the people
+  // ------------------------------------------------------------------ the people (Fase 39: they live a day, and they appear a few at a time)
   const people = [];
   const hot = document.createElement('div'); hot.className = 'hotspots'; host.appendChild(hot);
   const infoCb = { fn: null };
-  await Promise.all(village.npcs.map(async ([role, title, x, y, z, mob]) => {
+  const puffTex = glowTexture();
+  const WORK = 0, EVENING = 1, LATE = 2, SLEEP = 3;
+  // the day of the game: sun up until 0.6 of the cycle
+  const phaseOf = (f, shift) => {
+    if (shift === 1) return f >= 0.58 && f < 0.99 ? WORK : SLEEP;
+    if (f < 0.46 || f >= 0.96) return WORK;
+    if (f < 0.60) return EVENING;
+    return f < 0.72 ? LATE : SLEEP;
+  };
+  const toWorld = (gx, gz) => [gx + 0.5 - vcx, gz + 0.5 - vcz];
+  const isDojo = !!village.dojo;
+  await Promise.all(village.npcs.map(async (sp, idx) => {
     try {
-      const m = buildModel(await loadJson('models/m_' + mob + '.json'));
-      const pos = new THREE.Vector3(x + 0.5 - vcx, y - gcenter - 0.02 + PAD * 0, z + 0.5 - vcz);
-      pos.y = (y + 0) - gcenter + PAD;
-      m.group.position.copy(pos); m.group.rotation.y = hash3(x, y, z, 5) * Math.PI * 2;
+      const m = buildModel(await loadJson('models/m_' + sp.m + '.json'));
+      const [wx, wy, wz] = sp.w, y = wy - gcenter + PAD - 0.02;
+      const [px, pz] = toWorld(wx, wz);
+      const pos = new THREE.Vector3(px, y, pz);
+      m.group.position.copy(pos); m.group.rotation.y = hash3(wx, wy, wz, 5) * Math.PI * 2;
       m.group.traverse(o => { if (o.isMesh) { o.castShadow = true; } });
+      m.group.visible = false; m.group.scale.setScalar(0.001);
       scene.add(m.group);
-      const btn = document.createElement('button'); btn.className = 'hotspot'; btn.type = 'button'; btn.hidden = true;
-      btn.innerHTML = '<i></i><span>' + (NPC_INFO[role] ? NPC_INFO[role][0] : title) + '</span>';
-      btn.addEventListener('click', e => { e.stopPropagation(); if (infoCb.fn) infoCb.fn(role, NPC_INFO[role]); });
-      hot.appendChild(btn);
-      people.push({ role, title, model: m, pos, btn, phase: hash3(x, y, z, 8) * 6.28, head: m.parts.head, base: m.group.rotation.y });
+      const puff = new THREE.Sprite(new THREE.SpriteMaterial({ map: puffTex, transparent: true, depthWrite: false, blending: THREE.AdditiveBlending, opacity: 0, color: 0xfff0c0 }));
+      puff.scale.setScalar(0.1); puff.position.copy(pos).add(new THREE.Vector3(0, 0.9, 0)); scene.add(puff);
+      let btn = null;
+      const role = sp.r || null;
+      if (role) {
+        btn = document.createElement('button'); btn.className = 'hotspot'; btn.type = 'button'; btn.hidden = true;
+        btn.innerHTML = '<i></i><span>' + (sp.n && sp.n !== sp.t ? sp.n + ' · ' : '') + sp.t + '</span>';
+        btn.addEventListener('click', e => { e.stopPropagation(); if (infoCb.fn) infoCb.fn(role, NPC_INFO[role]); });
+        hot.appendChild(btn);
+      }
+      const size = sp.k ? 0.62 : (sp.a ? 1 : 0.96 + (hash3(wx, wz, idx, 12) * 0.08));
+      people.push({
+        sp, idx, role, model: m, pos, puff, btn, size, phase: hash3(wx, wy, wz, 8) * 6.28, head: m.parts.head, base: m.group.rotation.y,
+        yaw: m.group.rotation.y, route: [], ph: -1, inside: false, step: null, walk: 0, moving: false, spawnAt: -1, born: -1, wander: new THREE.Vector3(px, y, pz), wt: 0,
+        strikeT: hash3(wx, wz, 3, 4) * 2, dojo: sp.dk
+      });
     } catch (e) { /* a missing model is just a missing person */ }
   }));
-  const where = {};
-  people.forEach(p => { if (!where[p.role]) where[p.role] = p.pos.clone().add(new THREE.Vector3(0, 1.5, 0)); });
+  people.sort((a, b) => a.idx - b.idx);
+  const where = {}, first = {}, tmp3 = new THREE.Vector3(0, 1.5, 0);
+  people.forEach(p => { if (p.role && !where[p.role]) { first[p.role] = p; where[p.role] = p.pos.clone().add(tmp3); } });
 
   // ------------------------------------------------------------------ the camera: keyframes round targets, driven by the scroll
   const T = (r, dy = 0) => ({ role: r, dy });
@@ -147,23 +192,27 @@ export async function createIsland(host, assets) {
     return true;
   }
   // az (degrees): the camera stands on the side of the plaza, looking at the person
-  const KEYS = [
+  const VKEYS = [
     { p: 0.00, tgt: [0, 6, 0], az: 28, dist: 112, elev: 20, fov: 40, time: 0.38 },
     { p: 0.10, tgt: [0, 6, 0], az: 70, dist: 92, elev: 17, fov: 40, time: 0.34 },
-    { p: 0.30, tgt: T('MERCHANT'), az: 108, dist: 13, elev: 24, fov: 52, time: 0.26 },
-    { p: 0.50, tgt: T('SMITH'), az: 30, dist: 12, elev: 16, fov: 54, time: 0.2 },
+    { p: 0.30, tgt: T('BARD'), az: { face: 'BARD', off: 32 }, dist: 17, elev: 38, fov: 50, time: 0.24 },
+    { p: 0.50, tgt: T('SMITH'), az: { face: 'SMITH', off: -28 }, dist: 16, elev: 30, fov: 52, time: 0.2 },
     { p: 0.68, tgt: [0, 10, 0], az: 150, dist: 44, elev: 21, fov: 46, time: 0.62 },
     { p: 0.84, tgt: [0, 8, 0], az: 215, dist: 38, elev: 12, fov: 48, time: 0.82 },
     { p: 1.00, tgt: [0, 2, 0], az: 270, dist: 150, elev: 30, fov: 38, time: 0.99 }
   ];
+  // a camera that stands in front of a person (the way they face), a little to the side
+  const KEYS = opts.keys || VKEYS;
+  function azOf(k) { if (typeof k.az === 'number') return k.az; const p = first[k.az.face]; return p ? (p.yaw * 180 / Math.PI + k.az.off) : 30; }
   function resolve(t) { return Array.isArray(t) ? new THREE.Vector3(...t) : (where[t.role] ? where[t.role].clone().add(new THREE.Vector3(0, t.dy, 0)) : new THREE.Vector3(0, 8, 0)); }
   const state = { p: 0, timeOverride: null, time: KEYS[0].time, user: 0, drag: false, hotOn: false, userPitch: 0, glow: 0 };
   function pose(p) {
     let i = 0; while (i < KEYS.length - 2 && p > KEYS[i + 1].p) i++;
     const a = KEYS[i], b = KEYS[i + 1], k = smooth((p - a.p) / (b.p - a.p));
     const ta = resolve(a.tgt), tb = resolve(b.tgt);
-    let da = b.az - a.az; da = ((da + 540) % 360) - 180;
-    return { tgt: ta.lerp(tb, k), az: a.az + da * k, dist: lerp(a.dist, b.dist, k), elev: lerp(a.elev, b.elev, k), fov: lerp(a.fov, b.fov, k), time: lerp(a.time, b.time, k) };
+    const azA = azOf(a), azB = azOf(b);
+    let da = azB - azA; da = ((da + 540) % 360) - 180;
+    return { tgt: ta.lerp(tb, k), az: azA + da * k, dist: lerp(a.dist, b.dist, k), elev: lerp(a.elev, b.elev, k), fov: lerp(a.fov, b.fov, k), time: lerp(a.time, b.time, k) };
   }
   // drag: turn round the scene; it springs back to the script when you let go
   let lx = 0, id0 = null;
@@ -175,7 +224,8 @@ export async function createIsland(host, assets) {
 
   // ------------------------------------------------------------------ the shadow of the sun covers the island
   const sh = sky.sun.shadow; sh.mapSize.set(2048, 2048);
-  Object.assign(sh.camera, { left: -62, right: 62, top: 62, bottom: -62, near: 10, far: 420 });
+  const SB = village.dojo ? 40 : 62;
+  Object.assign(sh.camera, { left: -SB, right: SB, top: SB, bottom: -SB, near: 10, far: 420 });
   sh.bias = -0.0006; sh.normalBias = 0.5;
   sky.sun.target.position.set(0, 0, 0);
 
@@ -192,6 +242,7 @@ export async function createIsland(host, assets) {
 
   view.update = (dt, time) => {
     spin += dt;
+    if (opts.auto && !REDUCED) { state.p = ((time * 0.012) % 1); state.hotOn = true; }
     const target = state.timeOverride != null ? state.timeOverride : pose(state.p).time;
     // the day glides to where it should be (the shortest way round)
     let d = target - timeNow; d = ((d + 1.5) % 1) - 0.5;
@@ -215,13 +266,88 @@ export async function createIsland(host, assets) {
     sky.sun.target.position.set(0, 0, 0); sky.sun.position.copy(s.dayK > 0.04 ? s.sunDir : s.sunDir.clone().negate()).multiplyScalar(170);
     sky.layoutClouds(time);
     rocks.forEach(r => { r.position.y = r.userData.base + Math.sin(time * 0.5 + r.userData.ph) * 1.6; r.rotation.y = Math.sin(time * 0.12 + r.userData.ph) * 0.1; });
-    // the people breathe, look about; the torches flicker and the nearest ones light the street
+    // the people live their day: at work, out on the square at dusk, at the inn or at their door, asleep at home; they come into the world a few at a time
+    const f = ((timeNow % 1) + 1) % 1;
+    const tgtOf = (p, ph) => {
+      const sp = p.sp;
+      if (sp.a || sp.fixed) return null;
+      if (isDojo) return { x: sp.w[0], z: sp.w[2], inside: false };
+      if (ph === EVENING) return { x: sp.e[0], z: sp.e[1], inside: false };
+      if (ph === LATE) return sp.li ? { x: sp.l[0], z: sp.l[1], inside: true, step: sp.ls } : { x: sp.l[0], z: sp.l[1], inside: false };
+      if (ph === SLEEP) return { x: sp.i[0], z: sp.i[1], inside: true, step: sp.h };
+      return { x: sp.w[0], z: sp.w[2], inside: false };
+    };
     people.forEach(p => {
-      const m = p.model;
-      m.group.scale.y = 1 + Math.sin(time * 1.6 + p.phase) * 0.008;
-      if (p.head) p.head.rotation.y = Math.sin(time * 0.5 + p.phase) * 0.45 * Math.max(0, Math.sin(time * 0.17 + p.phase * 2));
-      if (m.parts.armR) m.parts.armR.rotation.x = Math.sin(time * 1.3 + p.phase) * 0.06;
-      if (m.parts.armL) m.parts.armL.rotation.x = -Math.sin(time * 1.3 + p.phase) * 0.06;
+      const m = p.model, sp = p.sp;
+      // coming into being
+      if (p.spawnAt < 0) p.spawnAt = time + 0.5 + p.idx * 0.17;
+      if (p.born < 0) {
+        if (time < p.spawnAt) return;
+        p.born = time; m.group.visible = true;
+      }
+      const age = time - p.born;
+      const grow = REDUCED ? 1 : smooth(clamp(age / 0.9, 0, 1));
+      m.group.scale.setScalar(Math.max(0.001, grow) * p.size * (1 + Math.sin(time * 1.6 + p.phase) * 0.004));
+      const pu = clamp(age / 1.1, 0, 1);
+      p.puff.material.opacity = (1 - pu) * 0.7 * (REDUCED ? 0 : 1); p.puff.scale.setScalar(0.4 + pu * 4.2); p.puff.position.set(p.pos.x, p.pos.y + 0.9, p.pos.z);
+      // where should they be?
+      let moving = false, face = null;
+      if (sp.a) {
+        // an animal grazes round its spot
+        p.wt -= dt;
+        if (p.wt <= 0) { const a = hash3(Math.floor(time * 3), p.idx, 1, 9) * 6.283, r = (sp.rad || 4) * hash3(p.idx, Math.floor(time * 2), 2, 3); const c = toWorld(sp.w[0], sp.w[2]); p.wander.set(c[0] + Math.cos(a) * r, p.pos.y, c[1] + Math.sin(a) * r); p.wt = 2 + hash3(p.idx, Math.floor(time), 7, 5) * 5; }
+        const dx = p.wander.x - p.pos.x, dz = p.wander.z - p.pos.z, d = Math.hypot(dx, dz);
+        if (d > 0.15 && p.wt > 0.2) { const v = Math.min(d, 0.9 * dt); p.pos.x += dx / d * v; p.pos.z += dz / d * v; moving = true; face = Math.atan2(dx, dz); }
+      } else if (!sp.fixed) {
+        const ph = phaseOf(f, sp.sh || 0);
+        if (ph !== p.ph) {
+          const t = tgtOf(p, ph); p.ph = ph; p.route = [];
+          if (p.inside && p.step) p.route.push(toWorld(p.step[0], p.step[1]));
+          if (t.inside && t.step) p.route.push(toWorld(t.step[0], t.step[1]));
+          p.route.push(toWorld(t.x, t.z)); p.target = t;
+        }
+        const wp = p.route[0];
+        if (wp) {
+          const dx = wp[0] - p.pos.x, dz = wp[1] - p.pos.z, d = Math.hypot(dx, dz);
+          const last = p.route.length === 1;
+          if (d < (last ? 0.35 : 0.9)) {
+            p.route.shift();
+            if (last) { p.inside = p.target.inside; p.step = p.target.step || null; }
+            else if (p.inside) { p.inside = false; }
+          } else {
+            const speed = Math.min(16, 3 + d * 0.4);
+            const v = Math.min(d, speed * dt); p.pos.x += dx / d * v; p.pos.z += dz / d * v; moving = true; face = Math.atan2(dx, dz);
+          }
+        }
+        if (isDojo && !moving && sp.tx) { const c = toWorld(sp.tx[0], sp.tx[1]); face = Math.atan2(c[0] - p.pos.x, c[1] - p.pos.z); }
+      }
+      if (face != null) { let dd = face - p.yaw; dd = Math.atan2(Math.sin(dd), Math.cos(dd)); p.yaw += dd * Math.min(1, dt * 7); }
+      else if (!moving && !sp.fixed && !isDojo && time - p.born > 2) { p.yaw += Math.sin(time * 0.3 + p.phase) * 0.002; }
+      m.group.position.set(p.pos.x, p.pos.y - (p.dojo === 2 ? 0.32 : 0), p.pos.z); m.group.rotation.y = p.yaw;
+      p.puff.position.set(p.pos.x, p.pos.y + 0.9, p.pos.z);
+      if (p.role && p === first[p.role]) where[p.role].copy(p.pos).add(tmp3);
+      // limbs: a walk, a trade, a practice
+      p.walk += dt * (moving ? 7.5 : 0);
+      const sw = moving ? Math.sin(p.walk) : 0, ph2 = p.phase;
+      if (m.parts.legL) { m.parts.legL.rotation.x = sw * 0.7; m.parts.legR.rotation.x = -sw * 0.7; }
+      let aL = moving ? -sw * 0.55 : -Math.sin(time * 1.3 + ph2) * 0.06, aR = moving ? sw * 0.55 : Math.sin(time * 1.3 + ph2) * 0.06;
+      if (!moving && !sp.a) {
+        const w = p.target || {};
+        const atWork = p.ph === WORK && !p.inside;
+        if (atWork && (p.role === 'SMITH' || p.role === 'CARPENTER')) aR = -0.5 + Math.sin(time * 5.2 + ph2) * 0.9;
+        else if (atWork && p.role === 'BAKER') { aL = -0.9 + Math.sin(time * 3 + ph2) * 0.2; aR = -0.9 - Math.sin(time * 3 + ph2) * 0.2; }
+        else if (atWork && p.role === 'FARMER') aR = -0.3 + Math.sin(time * 2.1 + ph2) * 0.6;
+        else if (p.role === 'BARD' && p.ph !== SLEEP) { aL = -1.0; aR = -0.7 + Math.sin(time * 6 + ph2) * 0.25; }
+        if (isDojo && p.role === 'DISCIPLE') {
+          p.strikeT -= dt;
+          const phs = Math.floor(time / 1.4) + p.idx;
+          if (p.dojo === 0 || (p.dojo === 1 && (phs & 1) === 0)) { const k = (time * 0.7 + ph2) % 1; if (k < 0.2) aR = -1.7 * Math.sin(k / 0.2 * Math.PI); }
+        }
+      }
+      if (m.parts.armL) m.parts.armL.rotation.x = aL;
+      if (m.parts.armR) m.parts.armR.rotation.x = aR;
+      if (p.head && !moving) p.head.rotation.y = Math.sin(time * 0.5 + p.phase) * 0.45 * Math.max(0, Math.sin(time * 0.17 + p.phase * 2));
+      else if (p.head) p.head.rotation.y = 0;
     });
     lampT -= dt;
     if (lampT <= 0) {
@@ -236,13 +362,15 @@ export async function createIsland(host, assets) {
     if (state.hotOn) {
       const w = view.size.x, h = view.size.y;
       people.forEach(p => {
+        if (!p.btn) return;
+        if (p.born < 0) { p.btn.hidden = true; return; }
         tmp.copy(p.pos); tmp.y += 2.9; tmp.project(camera);
         let vis = tmp.z < 1 && Math.abs(tmp.x) < 1.05 && Math.abs(tmp.y) < 1.05 && camera.position.distanceTo(p.pos) < 17;
         if (vis) { tmp2.copy(p.pos); tmp2.y += 1.5; vis = clearLine(camera.position, tmp2); }            // a sign only for people you can see
         p.btn.hidden = !vis;
         if (vis) p.btn.style.transform = 'translate(' + ((tmp.x * 0.5 + 0.5) * w).toFixed(1) + 'px,' + ((-tmp.y * 0.5 + 0.5) * h).toFixed(1) + 'px) translate(-50%,-100%)';
       });
-    } else people.forEach(p => { p.btn.hidden = true; });
+    } else people.forEach(p => { if (p.btn) p.btn.hidden = true; });
     return true;
   };
   view.onQuality = q => { sky.sun.castShadow = q > 0.62; };

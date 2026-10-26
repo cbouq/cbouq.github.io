@@ -17,6 +17,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Press+Start+2P&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/site.css">
 <link rel="stylesheet" href="assets/css/world3d.css">
+<link rel="stylesheet" href="assets/css/coming.css">
 <script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js"}}</script>
 <link rel="modulepreload" href="https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js">
 </head>
@@ -31,9 +32,11 @@
       <li><a href="#gioco">Il gioco</a></li>
       <li><a href="#armeria">Armeria</a></li>
       <li><a href="#bestiario">Bestiario</a></li>
+      <li><a href="#dojo-sezione">Dojo</a></li>
       <li><a href="#miniere">Miniere</a></li>
       <li><a href="#costruisci">Costruisci</a></li>
       <li><a href="#domini">Domini</a></li>
+      <li><a href="#prossimamente">Prossimamente</a></li>
       <li><a href="novita.html">Novità</a></li>
       <li><a href="wiki/">Wiki</a></li>
       <li class="cta"><a class="btn sm" href="#scarica">Scarica</a></li>
@@ -67,8 +70,8 @@
       <div class="j-step" data-from="0.2" data-to="0.4">
         <div class="j-card">
           <h3>Villaggi che vivono</h3>
-          <p>Ogni villaggio ha le sue facce: l'Oste, il Mercante, il Fabbro, il Cacciatore, l'Erborista. Parlaci, compra e vendi, accetta missioni e guadagna fiducia: più ti stimano, meno paghi.</p>
-          <div class="chips"><span>8 mestieri</span><span>Missioni</span><span>Reputazione</span><span>Monete</span></div>
+          <p>Quindici tipi di abitanti, ognuno con la sua faccia: dal Fornaio al Bardo, dal Fabbro al Sacerdote, fino ai bambini che giocano in piazza. Di giorno lavorano, di sera si ritrovano sulla piazza, di notte dormono a casa. Parlaci, compra e vendi, accetta missioni: più ti stimano, meno paghi.</p>
+          <div class="chips"><span>15 tipi di abitanti</span><span>Una giornata vera</span><span>Missioni</span><span>Reputazione</span></div>
         </div>
       </div>
 
@@ -83,8 +86,8 @@
       <div class="j-step" data-from="0.6" data-to="0.77">
         <div class="j-card">
           <h3>Questo è il gioco vero</h3>
-          <p>Il villaggio che vedi lo ha generato il motore del gioco, con le sue texture e i suoi abitanti. Trascina per girare, tocca un abitante per conoscerlo.</p>
-          <div class="chips"><span>Generato dal codice</span><span>Texture del gioco</span></div>
+          <p>Il villaggio che vedi lo ha generato il motore del gioco, con le sue case, le sue texture e i suoi abitanti, che compaiono uno alla volta e seguono la loro giornata. Trascina per girare, tocca un abitante per conoscerlo.</p>
+          <div class="chips"><span>Generato dal codice</span><span>Abitanti con routine</span><span>Texture del gioco</span></div>
         </div>
       </div>
 
@@ -218,6 +221,22 @@
     </div>
   </section>
 
+  <section class="zone" id="dojo-sezione">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Il dojo</span>
+        <h2 class="px">Una scuola di arti marziali</h2>
+        <p class="lead">Nel mondo sorgono scuole dove si imparano le arti marziali: un torii rosso, un giardino zen, la sala del maestro e un campo dove gli allievi si allenano davvero. Qui sotto c'è quello che genera il gioco, con i suoi abitanti: tocca un allievo o il maestro per conoscerli.</p>
+      </div>
+      <div class="stage dojo" id="dojo" data-loading="APRO IL DOJO…" aria-label="Il dojo in 3D">
+        <div class="stage-host" id="dojo-host"></div>
+        <div class="ui3d stage-top"><button class="tog" type="button" id="dojo-time">Ora: automatica</button><button class="tog" type="button" data-theme-toggle aria-pressed="false">Texture: scure</button></div>
+        <div class="npc-card" id="dojo-card" role="dialog" aria-live="polite"></div>
+      </div>
+      <div class="chips rv" style="margin-top:22px"><span>Giardino zen e stagno con le carpe</span><span>Sala con tatami e doppio tetto</span><span>Casa del tè e campanile</span><span>Nove allievi in allenamento</span></div>
+    </div>
+  </section>
+
   <section class="mine" id="miniere" aria-label="Le miniere: scendi in profondità">
     <div class="mine-pin">
       <div class="mine-host" id="mine-host"></div>
@@ -297,6 +316,79 @@
     </div>
   </section>
 
+  <section class="soon" id="prossimamente" aria-label="Prossimamente: ULTRA-CREATIVE, modalità D&amp;D e modalità zombie">
+    <div class="wrap">
+      <div class="sec-head rv">
+        <span class="eyebrow">Prossimamente</span>
+        <h2 class="px">Tre modi nuovi di giocare</h2>
+        <p class="lead">Il mondo di Voxel World sta per diventare molto più grande: un editor senza limiti, un tavolo da D&amp;D che prende vita e una notte che non vuole finire. Sono in lavorazione: ecco cosa stiamo costruendo.</p>
+      </div>
+      <div class="soon-grid">
+
+        <article class="soon-card creative rv">
+          <span class="soon-tag">IN ARRIVO</span>
+          <svg class="ico" viewBox="0 0 24 24" shape-rendering="crispEdges" aria-hidden="true">
+            <g fill="#183b46"><rect x="2" y="2" width="20" height="1"/><rect x="2" y="21" width="20" height="1"/><rect x="2" y="2" width="1" height="20"/><rect x="21" y="2" width="1" height="20"/><rect x="2" y="8" width="20" height="1"/><rect x="2" y="15" width="20" height="1"/><rect x="8" y="2" width="1" height="20"/><rect x="15" y="2" width="1" height="20"/></g>
+            <g fill="#6fe3ff"><rect x="5" y="9" width="14" height="1"/><rect x="5" y="9" width="1" height="8"/><rect x="18" y="9" width="1" height="8"/><rect x="5" y="16" width="14" height="1"/><rect x="9" y="5" width="9" height="1"/><rect x="9" y="5" width="1" height="5"/><rect x="18" y="5" width="1" height="5"/><rect x="5" y="9" width="4" height="1"/></g>
+            <g fill="#ffd36a"><rect x="9" y="10" width="9" height="6"/></g><g fill="#e9b23a"><rect x="9" y="14" width="9" height="2"/></g><g fill="#fff3c2"><rect x="10" y="11" width="3" height="1"/></g>
+          </svg>
+          <h3>ULTRA-CREATIVE</h3>
+          <p>Il Creativo diventa uno studio di progettazione. Porti dentro il gioco quello che hai disegnato fuori, e lo trasformi in un mondo da vivere, camminare e condividere.</p>
+          <ul>
+            <li><b>Importa i tuoi progetti</b>: dai programmi di CAD, di modellazione 3D e di architettura a Voxel World, trasformati in blocchi alla scala che scegli.</li>
+            <li><b>Mondi 100% personalizzabili</b>: dimensione del blocco, palette dei materiali, terreno, clima, regole e creature, tutto nelle tue mani.</li>
+            <li><b>Dalla planimetria al quartiere</b>: una casa, una città, un circuito, un set da film, in scala reale o in miniatura.</li>
+            <li><b>Condividi e costruite insieme</b>: pacchetti-mondo da scambiare e un editor a più giocatori.</li>
+          </ul>
+          <div class="chips" aria-label="Formati che stiamo preparando"><span>DXF</span><span>DWG</span><span>OBJ</span><span>STL</span><span>IFC</span><span>glTF</span><span>3DM · Rhino</span><span>ArchiLine</span><span>e altri</span></div>
+          <p class="foot">L'elenco definitivo dei formati verrà confermato all'uscita.</p>
+        </article>
+
+        <article class="soon-card dnd rv">
+          <span class="soon-tag">IN ARRIVO</span>
+          <svg class="ico" viewBox="0 0 24 24" shape-rendering="crispEdges" aria-hidden="true">
+            <g fill="#3a2370"><rect x="10" y="2" width="4" height="1"/><rect x="7" y="3" width="3" height="1"/><rect x="14" y="3" width="3" height="1"/><rect x="5" y="4" width="2" height="1"/><rect x="17" y="4" width="2" height="1"/><rect x="3" y="5" width="2" height="2"/><rect x="19" y="5" width="2" height="2"/><rect x="2" y="7" width="1" height="9"/><rect x="21" y="7" width="1" height="9"/><rect x="3" y="16" width="2" height="2"/><rect x="19" y="16" width="2" height="2"/><rect x="5" y="18" width="2" height="1"/><rect x="17" y="18" width="2" height="1"/><rect x="7" y="19" width="3" height="1"/><rect x="14" y="19" width="3" height="1"/><rect x="10" y="20" width="4" height="1"/></g>
+            <g fill="#7a4ad8"><rect x="10" y="3" width="4" height="1"/><rect x="7" y="4" width="10" height="1"/><rect x="5" y="5" width="14" height="2"/><rect x="3" y="7" width="18" height="9"/><rect x="5" y="16" width="14" height="2"/><rect x="7" y="18" width="10" height="1"/><rect x="10" y="19" width="4" height="1"/></g>
+            <g fill="#a67cf5"><rect x="10" y="4" width="4" height="1"/><rect x="8" y="5" width="8" height="1"/><rect x="6" y="6" width="12" height="1"/><rect x="4" y="7" width="16" height="2"/></g>
+            <g fill="#fff"><rect x="7" y="9" width="2" height="1"/><rect x="9" y="10" width="1" height="1"/><rect x="7" y="11" width="2" height="1"/><rect x="7" y="12" width="1" height="1"/><rect x="7" y="13" width="3" height="1"/><rect x="12" y="9" width="3" height="1"/><rect x="12" y="10" width="1" height="3"/><rect x="14" y="10" width="1" height="3"/><rect x="12" y="13" width="3" height="1"/></g>
+          </svg>
+          <h3>MODALITÀ D&amp;D</h3>
+          <p>Un tavolo da gioco in 3D per le tue campagne di Dungeons &amp; Dragons. Il Dungeon Master costruisce il mondo, i giocatori lo vivono: niente più mappe disegnate a mano.</p>
+          <ul>
+            <li><b>Strumenti da Dungeon Master</b>: piazza mostri e trappole, nascondi stanze segrete, rivela la mappa passo dopo passo con la nebbia di guerra.</li>
+            <li><b>Dadi, schede e turni</b>: tiri di dado condivisi, iniziativa, scheda del personaggio e prove di abilità, anche in rete.</li>
+            <li><b>Battlemap vive</b>: dungeon, taverne e villaggi diventano mappe a griglia da esplorare in prima persona o dall'alto.</li>
+            <li><b>Narrazione</b>: musica, luce e meteo scelti dal Master per dare atmosfera a ogni scena.</li>
+          </ul>
+          <p class="foot">Pensata per gruppi reali: un Master, fino a una tavolata di giocatori.</p>
+        </article>
+
+        <article class="soon-card zombie rv">
+          <span class="soon-tag">IN ARRIVO</span>
+          <svg class="ico" viewBox="0 0 24 24" shape-rendering="crispEdges" aria-hidden="true">
+            <g fill="#1f4a17"><rect x="4" y="3" width="16" height="1"/><rect x="3" y="4" width="1" height="16"/><rect x="20" y="4" width="1" height="16"/><rect x="4" y="20" width="16" height="1"/></g>
+            <g fill="#5fbf3f"><rect x="4" y="4" width="16" height="16"/></g>
+            <g fill="#7fe05a"><rect x="4" y="4" width="16" height="3"/><rect x="4" y="4" width="3" height="10"/></g>
+            <g fill="#3f9a2c"><rect x="14" y="14" width="6" height="6"/><rect x="6" y="17" width="4" height="3"/></g>
+            <g fill="#0c1a08"><rect x="6" y="9" width="4" height="3"/><rect x="14" y="9" width="4" height="3"/><rect x="8" y="15" width="8" height="1"/><rect x="9" y="16" width="1" height="2"/><rect x="12" y="16" width="1" height="2"/><rect x="15" y="16" width="1" height="2"/></g>
+            <g fill="#ff5a45"><rect x="7" y="10" width="2" height="1"/><rect x="15" y="10" width="2" height="1"/></g>
+          </svg>
+          <h3>MODALITÀ ZOMBIE</h3>
+          <p>Il sole tramonta e i morti si alzano. Sopravvivi ondata dopo ondata, da solo o con gli amici, dentro i villaggi e le città del gioco.</p>
+          <ul>
+            <li><b>Single player</b>: ondate che crescono notte dopo notte, tra barricate, trappole, torce e torrette da costruire in fretta.</li>
+            <li><b>Multiplayer cooperativo</b>: difendete insieme la stessa roccaforte; chi cade può essere rianimato dai compagni.</li>
+            <li><b>Non solo zombi</b>: corridori, bruti, sputatori e un boss che arriva quando meno te lo aspetti.</li>
+            <li><b>Il villaggio è la tua base</b>: gli abitanti, i fabbri e le guardie contano su di te per resistere fino all'alba.</li>
+          </ul>
+          <p class="foot">Per chi ama la tensione: ogni alba è una piccola vittoria.</p>
+        </article>
+
+      </div>
+      <p class="soon-note rv"><i class="pulse" aria-hidden="true"></i>Nessuna data ancora: quando una di queste modalità sarà pronta, la troverai qui e nella pagina delle <a href="novita.html">novità</a>.</p>
+    </div>
+  </section>
+
   <section id="galleria">
     <div class="wrap">
       <div class="sec-head rv">
@@ -311,11 +403,14 @@
   <section id="novita">
     <div class="wrap">
       <div class="sec-head rv">
-        <span class="eyebrow">Ultimo aggiornamento · 0.2.0 beta</span>
+        <span class="eyebrow">Ultimo aggiornamento · 0.2.0 beta · la 0.3.0 è in arrivo</span>
         <h2 class="px">Cosa c'è di nuovo</h2>
-        <p class="lead">Villaggi, missioni, Eredità, armi dai minerali, texture più scure, un'interfaccia da film e il gioco che si installa senza Java. Qui il riassunto; l'elenco completo, voce per voce, è nella pagina delle novità.</p>
+        <p class="lead">Villaggi, missioni, Eredità, armi dai minerali, texture più scure, un'interfaccia da film e il gioco che si installa senza Java. In più, già pronte per la prossima versione: villaggi, città e dojo ricchi di dettagli, abitanti che vivono una giornata, luci vere e un cielo stellato. Qui il riassunto; l'elenco completo, voce per voce, è nella pagina delle novità.</p>
       </div>
       <div class="news rv">
+        <article><small>0.3.0 · VILLAGGI</small><h4>Case, città e dojo con mille dettagli</h4><p>Case con camino e fioriere, locanda a due piani, cappella con campanile, mulino, città con mura e porte, dojo con giardino zen e stagno con le carpe.</p></article>
+        <article><small>0.3.0 · GENTE</small><h4>Abitanti con una giornata</h4><p>Quindici tipi di persone, ognuna con la sua faccia: lavorano, la sera si ritrovano in piazza, di notte dormono a casa. Compaiono con calma, mai davanti ai tuoi occhi.</p></article>
+        <article><small>0.3.0 · CIELO</small><h4>Luci vere e notti stellate</h4><p>Lampade che illuminano davvero con un alone morbido, meno nuvole di notte, migliaia di stelle, Andromeda, stelle cadenti e una luna con le sue fasi.</p></article>
         <article><small>MONDO</small><h4>Villaggi vivi</h4><p>Otto mestieri, mercato con prezzi e sconti, missioni di caccia, consegna, creazione, esplorazione e boss.</p></article>
         <article><small>ARMI</small><h4>97 armi, 9 minerali</h4><p>Rame, stagno, argento, cobalto e cinque cristalli rari con poteri: fiamme, gelo, tuono, vampirismo, ombra.</p></article>
         <article><small>EREDITÀ</small><h4>Il regno si risveglia</h4><p>Dieci gradi di sfida, Frammenti d'Eredità e tempra delle armi fino a +5.</p></article>

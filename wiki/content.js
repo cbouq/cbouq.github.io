@@ -249,7 +249,7 @@ window.WIKI_PAGES = {
 `},
 
 'villaggi': { title: 'Villaggi e missioni', html: `
-<p class="intro">Il mondo ha delle persone. Nelle pianure, nelle savane, nelle taighe e nei deserti sorgono <b>villaggi</b> (raggio 40) e <b>città murate</b> (raggio 60): piazza con fontana, mercato a tendoni colorati, case, campi, torce lungo le strade. Ci vivono otto mestieri.</p>
+<p class="intro">Il mondo ha delle persone. Nelle pianure, nelle savane, nelle taighe e nei deserti sorgono <b>villaggi</b> (raggio 45) e <b>città murate</b> (raggio 57): piazza con il pozzo, mercato a tendoni colorati, case di sei tipi, locanda, cappella, mulino, campi, lampioni lungo le strade. Ci vivono quindici tipi di persone, ognuna con la sua faccia e una giornata vera: lavorano, la sera si ritrovano in piazza, di notte dormono a casa.</p>
 <h2>Come li trovi</h2>
 <p><code>/locate villaggio</code> e <code>/locate citta</code> dicono dov'è il più vicino. La prima volta che ne scopri uno compare un cartello con il suo nome (e un'impresa).</p>
 <h2>Gli abitanti</h2>
@@ -277,7 +277,7 @@ window.WIKI_PAGES = {
 `},
 
 'abitanti': { title: 'Abitanti dei villaggi', html: `
-<p class="intro">Gli otto mestieri dei villaggi. Per saperne di più su come si parla, si commercia e si accettano missioni, leggi <a href="#/villaggi">Villaggi e missioni</a>.</p>
+<p class="intro">I quindici tipi di abitanti dei villaggi e dei dojo. Per saperne di più su come si parla, si commercia e si accettano missioni, leggi <a href="#/villaggi">Villaggi e missioni</a>.</p>
 `},
 
 'minerali': { title: 'Minerali', html: `

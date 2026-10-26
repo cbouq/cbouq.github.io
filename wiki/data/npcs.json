@@ -6,5 +6,12 @@
 {"id":"FARMER","name":"Contadino","text":"vende semi e raccolti, e ha sempre un lavoro per te","trades":true,"quests":true,"mob":"VILLAGER_FARMER"},
 {"id":"HUNTER","name":"Cacciatore","text":"compra pellicce e dà la caccia ai mostri","trades":true,"quests":true,"mob":"VILLAGER_HUNTER"},
 {"id":"GUARD","name":"Guardia","text":"vigila sul villaggio e chiede aiuto contro i mostri","trades":false,"quests":true,"mob":"VILLAGER_GUARD"},
-{"id":"HERBALIST","name":"Erborista","text":"vende pozioni e raccoglie erbe rare","trades":true,"quests":true,"mob":"VILLAGER_HERBALIST"}
+{"id":"HERBALIST","name":"Erborista","text":"vende pozioni e raccoglie erbe rare","trades":true,"quests":true,"mob":"VILLAGER_HERBALIST"},
+{"id":"BAKER","name":"Fornaio","text":"sforna pane, torte e dolci ogni mattina","trades":true,"quests":true,"mob":"VILLAGER_BAKER"},
+{"id":"CARPENTER","name":"Falegname","text":"vende legname e travi, e compra tronchi","trades":true,"quests":true,"mob":"VILLAGER_CARPENTER"},
+{"id":"PRIEST","name":"Sacerdote","text":"benedice i viandanti e cura chi è ferito","trades":false,"quests":true,"mob":"VILLAGER_PRIEST"},
+{"id":"BARD","name":"Bardo","text":"canta le storie del regno nella sala dell'oste","trades":false,"quests":false,"mob":"VILLAGER_BARD"},
+{"id":"CITIZEN","name":"Abitante","text":"vive qui, e conosce tutti i pettegolezzi","trades":false,"quests":false,"mob":"VILLAGER_CITIZEN"},
+{"id":"CHILD","name":"Bambino","text":"corre per la piazza e fa mille domande","trades":false,"quests":false,"mob":"VILLAGER_CHILD"},
+{"id":"DISCIPLE","name":"Allievo","text":"si allena nel dojo sotto lo sguardo del maestro","trades":false,"quests":false,"mob":"VILLAGER_DISCIPLE"}
 ]
