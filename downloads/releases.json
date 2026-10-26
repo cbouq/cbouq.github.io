@@ -1,6 +1,6 @@
 {
- "version": "0.2.0-beta",
- "date": "2026-10-24",
+ "version": "0.3.0-beta",
+ "date": "2026-10-26",
  "files": [
   {
    "os": "any",
@@ -8,10 +8,10 @@
    "kind": "java",
    "label": "Con Java già installato (tutti i sistemi)",
    "ext": ".zip",
-   "name": "VoxelWorld-0.2.0-beta-completo.zip",
-   "size": 15314797,
-   "sha256": "9d06f6a9754bae9b36a06c71491d4fadc79708489b525e54c714641b13db1cae",
-   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.2.0-beta/VoxelWorld-0.2.0-beta-completo.zip"
+   "name": "VoxelWorld-0.3.0-beta-completo.zip",
+   "size": 15437454,
+   "sha256": "6eddcc5337a386d8e7f85c948a6fa08963806fb7c9c2a3638fba80b20fa7408a",
+   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.3.0-beta/VoxelWorld-0.3.0-beta-completo.zip"
   },
   {
    "os": "linux",
@@ -19,10 +19,10 @@
    "kind": "installer",
    "label": "Linux · 64 bit",
    "ext": ".tar.gz",
-   "name": "VoxelWorld-0.2.0-beta-linux-x64.tar.gz",
-   "size": 52862144,
-   "sha256": "909bb229be00ae1ba4b71d284998493944eebcdbd95f90b0198de59b93eee149",
-   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.2.0-beta/VoxelWorld-0.2.0-beta-linux-x64.tar.gz"
+   "name": "VoxelWorld-0.3.0-beta-linux-x64.tar.gz",
+   "size": 52983549,
+   "sha256": "84788c65ae25471d96aeb894a9b38624ba4b85dd08459a002dc8517c161184bb",
+   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.3.0-beta/VoxelWorld-0.3.0-beta-linux-x64.tar.gz"
   },
   {
    "os": "mac",
@@ -30,10 +30,10 @@
    "kind": "installer",
    "label": "macOS · Apple Silicon (M1, M2, M3…)",
    "ext": ".dmg",
-   "name": "VoxelWorld-0.2.0-beta-mac-arm64.dmg",
-   "size": 47812925,
-   "sha256": "3ff313378dfaee32f913865c19f31d85026c35ec2d9525afa525b64b5416c67b",
-   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.2.0-beta/VoxelWorld-0.2.0-beta-mac-arm64.dmg"
+   "name": "VoxelWorld-0.3.0-beta-mac-arm64.dmg",
+   "size": 47434608,
+   "sha256": "6e698392feb47664dd2e6a088685b4e129e3888932c5268440a36c58fb037b4d",
+   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.3.0-beta/VoxelWorld-0.3.0-beta-mac-arm64.dmg"
   },
   {
    "os": "mac",
@@ -41,10 +41,10 @@
    "kind": "installer",
    "label": "macOS · Intel",
    "ext": ".dmg",
-   "name": "VoxelWorld-0.2.0-beta-mac-x64.dmg",
-   "size": 51218198,
-   "sha256": "e7b192338dfe2a317d5e478683ac4b65b3b0ddf01c7f918bfe44f5c13e56916d",
-   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.2.0-beta/VoxelWorld-0.2.0-beta-mac-x64.dmg"
+   "name": "VoxelWorld-0.3.0-beta-mac-x64.dmg",
+   "size": 51366033,
+   "sha256": "5205effa4099768753843d6fdb2532c34e216ec70719da34d3c4be3440841c82",
+   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.3.0-beta/VoxelWorld-0.3.0-beta-mac-x64.dmg"
   },
   {
    "os": "win",
@@ -52,10 +52,10 @@
    "kind": "installer",
    "label": "Windows 10 / 11",
    "ext": ".zip",
-   "name": "VoxelWorld-0.2.0-beta-windows-x64.zip",
-   "size": 49138167,
-   "sha256": "823937097080746d7607e7a73ccd426db76321f9c80318c9b0df4e65bf7d285c",
-   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.2.0-beta/VoxelWorld-0.2.0-beta-windows-x64.zip"
+   "name": "VoxelWorld-0.3.0-beta-windows-x64.zip",
+   "size": 49260481,
+   "sha256": "85c0a76685ee7dba96dd1d6408050df4bf9205f7a1fda4d58d71b98fe0a6035a",
+   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.3.0-beta/VoxelWorld-0.3.0-beta-windows-x64.zip"
   },
   {
    "os": "any",
@@ -63,10 +63,10 @@
    "kind": "jar",
    "label": "Solo il file .jar",
    "ext": ".jar",
-   "name": "VoxelWorld-0.2.0-beta.jar",
-   "size": 15753178,
-   "sha256": "30441164764425ac032e2d16d413076d58f00447a553a8059dc75524a6ccb33c",
-   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.2.0-beta/VoxelWorld-0.2.0-beta.jar"
+   "name": "VoxelWorld-0.3.0-beta.jar",
+   "size": 15880092,
+   "sha256": "d2ddd257d400c2adb86884510ad548bf985108cb69459d6dc7a769ff52ba9feb",
+   "url": "https://github.com/cbouq/cbouq.github.io/releases/download/v0.3.0-beta/VoxelWorld-0.3.0-beta.jar"
   }
  ]
 }

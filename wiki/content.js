@@ -1,4 +1,4 @@
-/* Pagine scritte a mano della wiki (le tabelle vengono dai dati del gioco). Voxel World 0.2.0 beta. */
+/* Pagine scritte a mano della wiki (le tabelle vengono dai dati del gioco). Voxel World 0.3.0 beta. */
 window.WIKI_PAGES = {
 
 'per-iniziare': { title: 'Per iniziare', html: `
