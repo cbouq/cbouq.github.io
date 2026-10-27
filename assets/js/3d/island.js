@@ -3,9 +3,11 @@
  * people, torches that light the night and a sky that follows the game's day. The camera follows the scroll of the page.
  */
 import * as THREE from 'three';
-import { loadJson, worldFromVillage, meshBlocks, buildModel, hash3 } from './voxel.js';
+import { loadJson, worldFromVillage, meshBlocks, buildModel, hash3, bendElbows } from './voxel.js';
 import { View, REDUCED, lerp, clamp, smooth, noise2 } from './rig.js';
 import { Sky } from './sky.js';
+
+const STIFF_ARM = new Set(['ELDER', 'GUARD', 'FARMER', 'PRIEST', 'HUNTER', 'SMITH']);   // a staff, a spear, a pitchfork, a crook, a bow, a hammer: the right arm stays straighter
 
 export const NPC_INFO = {
   ELDER: ['Anziano', 'Racconta le storie del villaggio e dà gli incarichi più importanti. Quando il Re Eterno è caduto, è lui che può risvegliare il regno: i guardiani tornano, più forti.'],
@@ -346,6 +348,7 @@ export async function createIsland(host, assets, opts = {}) {
       }
       if (m.parts.armL) m.parts.armL.rotation.x = aL;
       if (m.parts.armR) m.parts.armR.rotation.x = aR;
+      bendElbows(m.parts, aL, aR, moving ? 1 : 0, 0, STIFF_ARM.has(p.role) && !isDojo ? 0.55 : 0);      // the elbows fold (the right hand carries a long tool)
       if (p.head && !moving) p.head.rotation.y = Math.sin(time * 0.5 + p.phase) * 0.45 * Math.max(0, Math.sin(time * 0.17 + p.phase * 2));
       else if (p.head) p.head.rotation.y = 0;
     });

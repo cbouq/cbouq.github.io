@@ -282,3 +282,14 @@ export function buildModel(data) {
   group.userData.originY = data.oy * vs;
   return { group, parts, size: group.userData.size, materials: [matLit, matGlow] };
 }
+
+/**
+ * The elbows (Fase 40): the forearm part (foreL / foreR, hanging from the arm at the elbow) folds forward as far as the arm lifts, a little
+ * always and a little more in a stride - the same rule the game uses. `stiff` 0..1 keeps the arm straighter (a long tool carried in the hand).
+ * Angles are in radians, negative = forward. Does nothing for a model whose arms are a single block.
+ */
+export function bendElbows(P, armL, armR, speed = 0, stiffL = 0, stiffR = 0) {
+  const bend = (a, st) => Math.min(120, 8 + 10 * Math.min(1, speed) + 0.45 * Math.min(150, Math.max(0, -a * 57.29578))) * (1 - Math.min(1, Math.max(0, st))) * Math.PI / 180;
+  if (P.foreL) P.foreL.rotation.x = -bend(armL, stiffL);
+  if (P.foreR) P.foreR.rotation.x = -bend(armR, stiffR);
+}

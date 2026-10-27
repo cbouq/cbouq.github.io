@@ -180,7 +180,7 @@
   function home() {
     var cards = Object.keys(DATASETS).map(function (k) { var d = DATASETS[k]; var n = d.data ? (D[d.data] || []).length : (D[d.view === 'sets' ? 'sets' : 'bosses'] || []).length; return '<a class="card" href="#/' + k + '"><h3>' + d.title + '</h3><div class="sub">' + n + ' voci</div></a>'; }).join('');
     var feat = [['per-iniziare', 'Per iniziare', 'i primi dieci minuti'], ['controlli', 'Controlli', 'tutti i tasti'], ['sopravvivenza', 'Guida alla sopravvivenza', 'fame, schemi, tomba'], ['magia', 'Guida alla magia', 'scuole, mana, maestria'], ['domini', 'I sei Domini', 'le mosse definitive'], ['combattimento', 'Combattimento', 'parate e schivate'], ['villaggi', 'Villaggi e missioni', 'mestieri, prezzi, reputazione'], ['eredita', 'Eredità', 'il regno si risveglia'], ['faq', 'Domande frequenti', 'problemi e trucchi'], ['console', 'Console e comandi', 'strumenti di prova']];
-    doc.innerHTML = '<h1>Wiki di Voxel World</h1><p class="intro">Tutto quello che c\'è nel gioco, con i numeri veri (esportati dal gioco stesso, versione 0.3.0 beta). Usa l\'indice a sinistra o la ricerca in alto.</p>' +
+    doc.innerHTML = '<h1>Wiki di Voxel World</h1><p class="intro">Tutto quello che c\'è nel gioco, con i numeri veri (esportati dal gioco stesso, versione 0.3.1 beta). Usa l\'indice a sinistra o la ricerca in alto.</p>' +
       '<h2>Guide</h2><div class="cardgrid">' + feat.map(function (f) { return '<a class="card" href="#/' + f[0] + '"><h3>' + f[1] + '</h3><div class="sub">' + f[2] + '</div></a>'; }).join('') + '</div>' +
       '<h2>Tutti i dati</h2><div class="cardgrid">' + cards + '</div>';
   }

@@ -4,7 +4,7 @@
  */
 import * as THREE from 'three';
 import { View, Orbit, REDUCED, lerp, clamp, smooth } from './rig.js';
-import { loadJson, buildModel, meshBlocks, hash3 } from './voxel.js';
+import { loadJson, buildModel, meshBlocks, hash3, bendElbows } from './voxel.js';
 import { Dust } from './editable.js';
 
 function sparkTexture() {
@@ -150,6 +150,7 @@ export async function createShowcase(host, assets, opts = {}) {
         if (P.legFL) { P.legFL.rotation.x = Math.sin(ph) * amp; P.legBR.rotation.x = Math.sin(ph) * amp; P.legFR.rotation.x = Math.sin(ph + Math.PI) * amp; P.legBL.rotation.x = Math.sin(ph + Math.PI) * amp; }
         if (P.legL && P.legR) { P.legL.rotation.x = Math.sin(ph) * amp; P.legR.rotation.x = Math.sin(ph + Math.PI) * amp; if (P.armL) P.armL.rotation.x = Math.sin(ph + Math.PI) * amp * 0.8; if (P.armR) P.armR.rotation.x = Math.sin(ph) * amp * 0.8; }
         else if (P.armL && P.armR) { P.armL.rotation.x = Math.sin(time * 1.2) * 0.06; P.armR.rotation.x = -Math.sin(time * 1.2) * 0.06; }
+        if (P.armL && P.armR) bendElbows(P, P.armL.rotation.x, P.armR.rotation.x, W ? 1 : 0, 0.4, 0.4);
         if (P.wingL) { const f = Math.sin(time * (W ? 9 : 4)) * (W ? 0.7 : 0.35); P.wingL.rotation.z = f; if (P.wingR) P.wingR.rotation.z = -f; }
         for (const n of ['tail', 'tail1', 'tail2', 'tail3']) if (P[n]) P[n].rotation.y = Math.sin(time * 2.2 + (n.length > 4 ? +n[4] : 0)) * 0.35;
         if (P.cape) P.cape.rotation.x = Math.sin(time * 1.6) * 0.06 + 0.04;
