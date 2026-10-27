@@ -15,6 +15,19 @@
       'Per giocare subito: <code>cd VoxelWorld &amp;&amp; ./bin/voxelworld</code>',
       'Per averlo nel menu delle applicazioni: <code>./install.sh</code>']
   };
+  // from the version with the launcher (0.3.2) the packages install themselves and the game offers a desktop shortcut
+  var STEPS_NEW = {
+    mac: ['Apri il file <code>.dmg</code> e trascina <b>Voxel World</b> in Applicazioni, poi espelli il disco.',
+      'Aprilo da Launchpad. La prima volta macOS dice che non può verificare lo sviluppatore (il gioco non ha un certificato a pagamento): apri <b>Impostazioni di Sistema → Privacy e sicurezza</b> e premi <b>Apri comunque</b>.',
+      'Il gioco ti propone un collegamento sul desktop: un clic e basta. Se compare «danneggiato»: <code>xattr -dr com.apple.quarantine "/Applications/Voxel World.app"</code>'],
+    win: ['Estrai tutto lo <code>.zip</code> dove vuoi.',
+      'Doppio clic su <code>Installa Voxel World.vbs</code>: lo installa, crea il collegamento sul desktop e nel menu Start e lo avvia. Se Windows avvisa, scegli <b>Maggiori informazioni → Esegui comunque</b>.',
+      'Da lì basta l\'icona. Per toglierlo: <code>Disinstalla Voxel World.vbs</code> (i mondi restano).'],
+    linux: ['Estrai: <code>tar xzf VoxelWorld-*-linux-x64.tar.gz</code>',
+      'Installa e gioca: <code>cd VoxelWorld &amp;&amp; ./install.sh</code> (menu delle applicazioni, desktop e avvio).',
+      'Senza installare: <code>./bin/voxelworld</code>. Per toglierlo: <code>./uninstall.sh</code> (i mondi restano).']
+  };
+  function newerThan(v, a, b, c) { var m = /(\d+)\.(\d+)\.?(\d*)/.exec(v || ''); if (!m) return false; var n = (+m[1] * 1000 + +m[2]) * 1000 + (+m[3] || 0); return n >= (a * 1000 + b) * 1000 + c; }
   function mb(n) { return n >= 1e8 ? Math.round(n / 1e6) + ' MB' : (n / 1e6).toFixed(n >= 1e7 ? 0 : 1).replace('.', ',') + ' MB'; }
   function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
   var ua = (navigator.userAgentData && navigator.userAgentData.platform) || navigator.platform || navigator.userAgent || '';
@@ -23,6 +36,7 @@
 
   function render(rel) {
     var files = rel.files || [];
+    if (newerThan(rel.version, 0, 3, 2)) STEPS = STEPS_NEW;
     var by = function (os) { return files.filter(function (f) { return f.os === os; }); };
     var inst = ['mac', 'win', 'linux'];
     // the main button: the installer of this system (on a Mac, the one for its chip when the browser tells)

@@ -4,5 +4,6 @@
 {"id":"SPEAR","name":"Lancia","text":"Il lungo raggio: infilza tutto quello che sta in linea retta, da lontano.","damage":6.8,"cooldown":0.52,"reach":5.4,"arc":22,"targets":4,"knockback":4,"guard":0.4},
 {"id":"DAGGER","name":"Pugnale","text":"Rapidissimo: colpi critici frequenti e il doppio del danno se colpisci alle spalle.","damage":3.6,"cooldown":0.2,"reach":2.9,"arc":55,"targets":1,"knockback":2,"guard":0.15},
 {"id":"HAMMER","name":"Maglio","text":"Pesante come una frana: il colpo scuote il terreno e travolge chi ti sta attorno.","damage":11.5,"cooldown":0.95,"reach":3.3,"arc":70,"targets":1,"knockback":12,"guard":0.3},
-{"id":"STAFF","name":"Bastone","text":"Debole in mischia, ma potenzia gli incantesimi e fa risparmiare mana a chi lo impugna.","damage":2.8,"cooldown":0.45,"reach":3.2,"arc":50,"targets":2,"knockback":6,"guard":0.2}
+{"id":"STAFF","name":"Bastone","text":"Debole in mischia, ma potenzia gli incantesimi e fa risparmiare mana a chi lo impugna.","damage":2.8,"cooldown":0.45,"reach":3.2,"arc":50,"targets":2,"knockback":6,"guard":0.2},
+{"id":"SCYTHE","name":"Falce","text":"La mietitrice: un arco larghissimo che falcia fino a sei nemici, e taglia l'erba alta e il grano maturo davanti a te.","damage":5.2,"cooldown":0.5,"reach":4.4,"arc":170,"targets":6,"knockback":3.5,"guard":0.15}
 ]

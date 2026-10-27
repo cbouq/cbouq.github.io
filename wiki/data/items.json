@@ -212,5 +212,20 @@
 {"id":"w:SWAMP_SPEAR","name":"Lancia della Madre Palude","kind":"WEAPON","stack":1,"durability":0,"speed":1,"food":0,"fuel":0,"color":"#619438","tool":null,"tier":4,"use":[]},
 {"id":"w:PHARAOH_KHOPESH","name":"Khopesh del Faraone","kind":"WEAPON","stack":1,"durability":0,"speed":1,"food":0,"fuel":0,"color":"#f2c747","tool":null,"tier":4,"use":[]},
 {"id":"w:TEMPEST_SPEAR","name":"Lancia del Tuono","kind":"WEAPON","stack":1,"durability":0,"speed":1,"food":0,"fuel":0,"color":"#9edbff","tool":null,"tier":4,"use":[]},
-{"id":"w:ECLIPSE_BLADE","name":"Lama dell'Eclissi","kind":"WEAPON","stack":1,"durability":0,"speed":1,"food":0,"fuel":0,"color":"#9947e6","tool":null,"tier":4,"use":[]}
+{"id":"w:ECLIPSE_BLADE","name":"Lama dell'Eclissi","kind":"WEAPON","stack":1,"durability":0,"speed":1,"food":0,"fuel":0,"color":"#9947e6","tool":null,"tier":4,"use":[]},
+{"id":"w:SCYTHE_WOOD","name":"Falce di Legno","kind":"WEAPON","stack":1,"durability":80,"speed":1,"food":0,"fuel":0,"color":"#996b3d","tool":null,"tier":1,"use":[]},
+{"id":"w:SCYTHE_STONE","name":"Falce di Pietra","kind":"WEAPON","stack":1,"durability":110,"speed":1,"food":0,"fuel":0,"color":"#8f8a80","tool":null,"tier":1,"use":[]},
+{"id":"w:SCYTHE_COPPER","name":"Falce di Rame","kind":"WEAPON","stack":1,"durability":130,"speed":1,"food":0,"fuel":0,"color":"#cc7547","tool":null,"tier":1,"use":[]},
+{"id":"w:SCYTHE_IRON","name":"Falce da Mietitore","kind":"WEAPON","stack":1,"durability":180,"speed":1,"food":0,"fuel":0,"color":"#9e9ea8","tool":null,"tier":2,"use":[]},
+{"id":"w:SCYTHE_BRONZE","name":"Falce di Bronzo","kind":"WEAPON","stack":1,"durability":220,"speed":1,"food":0,"fuel":0,"color":"#b88038","tool":null,"tier":2,"use":[]},
+{"id":"w:SCYTHE_STEEL","name":"Falce d'Acciaio","kind":"WEAPON","stack":1,"durability":260,"speed":1,"food":0,"fuel":0,"color":"#808a9e","tool":null,"tier":2,"use":[]},
+{"id":"w:SCYTHE_SILVER","name":"Falce di Argento","kind":"WEAPON","stack":1,"durability":200,"speed":1,"food":0,"fuel":0,"color":"#e0e6f5","tool":null,"tier":2,"use":[]},
+{"id":"w:SCYTHE_COBALT","name":"Falce di Cobalto","kind":"WEAPON","stack":1,"durability":340,"speed":1,"food":0,"fuel":0,"color":"#2957db","tool":null,"tier":3,"use":[]},
+{"id":"w:SCYTHE_MITHRIL","name":"Falce di Mithril","kind":"WEAPON","stack":1,"durability":380,"speed":1,"food":0,"fuel":0,"color":"#b8d9e6","tool":null,"tier":3,"use":[]},
+{"id":"w:SCYTHE_DRAGON","name":"Falce del Drago","kind":"WEAPON","stack":1,"durability":700,"speed":1,"food":0,"fuel":0,"color":"#9e241f","tool":null,"tier":4,"use":[]},
+{"id":"w:SCYTHE_FIAMMITE","name":"Falce di Fiammite","kind":"WEAPON","stack":1,"durability":360,"speed":1,"food":0,"fuel":0,"color":"#ff6b1a","tool":null,"tier":4,"use":[]},
+{"id":"w:SCYTHE_BRINITE","name":"Falce di Brinite","kind":"WEAPON","stack":1,"durability":360,"speed":1,"food":0,"fuel":0,"color":"#94e6ff","tool":null,"tier":4,"use":[]},
+{"id":"w:SCYTHE_VOLTITE","name":"Falce di Voltite","kind":"WEAPON","stack":1,"durability":340,"speed":1,"food":0,"fuel":0,"color":"#f5eb4d","tool":null,"tier":4,"use":[]},
+{"id":"w:SCYTHE_SANGUINITE","name":"Falce di Sanguinite","kind":"WEAPON","stack":1,"durability":380,"speed":1,"food":0,"fuel":0,"color":"#c7122e","tool":null,"tier":4,"use":[]},
+{"id":"w:SCYTHE_OMBRITE","name":"Falce di Ombrite","kind":"WEAPON","stack":1,"durability":380,"speed":1,"food":0,"fuel":0,"color":"#7a2ebd","tool":null,"tier":4,"use":[]}
 ]

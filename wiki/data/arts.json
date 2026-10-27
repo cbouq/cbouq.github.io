@@ -5,5 +5,6 @@
 {"id":"LANCIA","name":"Danza della Lancia","text":"La lancia: affondi precisi dalla distanza giusta."},
 {"id":"PUGNALE","name":"Lama d'Ombra","text":"Il pugnale: raffiche rapidissime e colpi alle spalle."},
 {"id":"MAGLIO","name":"Frana del Titano","text":"Il maglio: ogni colpo è un terremoto."},
-{"id":"BASTONE","name":"Bastone Sacro","text":"Il bastone: ritmo, equilibrio e impulsi arcani."}
+{"id":"BASTONE","name":"Bastone Sacro","text":"Il bastone: ritmo, equilibrio e impulsi arcani."},
+{"id":"FALCE","name":"Mietitura della Falce","text":"La falce: archi larghissimi e il turbine che mieta tutto intorno."}
 ]

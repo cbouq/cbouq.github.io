@@ -67,7 +67,7 @@
     ['shrine-slashes', 'La tempesta di tagli'],
     ['place-card', 'Il cartello del luogo, in stile film'],
     ['biome-plains', 'Pianure, con la terza persona a un tasto'],
-    ['ui-craft-weapons', 'L\'Artigiano con la ricerca e i filtri per le 97 armi'],
+    ['ui-craft-weapons', 'L\'Artigiano con la ricerca e i filtri per le 112 armi'],
     ['fp-staff', 'La staffa di cristallo'],
     ['ui-sets', 'I set d\'armatura e i loro bonus'],
     ['menu-void', 'Il menu: un dominio al rallentatore'],

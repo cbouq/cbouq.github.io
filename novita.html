@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Novità 0.3.1 beta — Voxel World</title>
-<meta name="description" content="Tutto quello che è cambiato in Voxel World dalla 0.1.0 beta alla 0.3.1 beta, voce per voce: braccia nuove, villaggi e dojo ricchi, abitanti con una giornata, luci e cielo stellato, comandi riassegnabili, missioni, Eredità, minerali e armi, texture scure, interfaccia da film, nitidezza, installer senza Java.">
+<title>Novità 0.3.2 beta — Voxel World</title>
+<meta name="description" content="Tutto quello che è cambiato in Voxel World dalla 0.1.0 beta alla 0.3.2 beta, voce per voce: sopravvivenza (inventario con E, attrezzi, falce), launcher, braccia nuove, villaggi e dojo ricchi, abitanti con una giornata, luci e cielo stellato, comandi riassegnabili, missioni, Eredità, minerali e armi, texture scure, interfaccia da film, nitidezza, installer senza Java.">
 <meta name="theme-color" content="#0a0912">
-<meta property="og:title" content="Novità 0.3.1 beta — Voxel World">
+<meta property="og:title" content="Novità 0.3.2 beta — Voxel World">
 <meta property="og:image" content="assets/img/hero-island.webp">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -38,13 +38,13 @@
   <header class="log-hero">
     <div class="wrap">
       <span class="eyebrow">Registro delle novità</span>
-      <h1 class="px">Voxel World 0.3.1 <span class="badge">BETA</span></h1>
-      <p class="lead">Questo è l'elenco completo, voce per voce, di tutto quello che è cambiato dalla <b>0.1.0 beta</b> (21 ottobre 2026) a questa versione (27 ottobre 2026): il gioco, il sito, la wiki e il modo di installarlo.</p>
+      <h1 class="px">Voxel World 0.3.2 <span class="badge">BETA</span></h1>
+      <p class="lead">Questo è l'elenco completo, voce per voce, di tutto quello che è cambiato dalla <b>0.1.0 beta</b> (21 ottobre 2026) a questa versione (28 ottobre 2026): il gioco, il sito, la wiki e il modo di installarlo.</p>
       <div class="diff" aria-label="Il gioco in numeri, prima e dopo">
-        <div><small>Armi</small><b>31 → 97</b></div>
-        <div><small>Oggetti</small><b>104 → 214</b></div>
-        <div><small>Ricette</small><b>166 → 314</b></div>
-        <div><small>Creature e abitanti</small><b>42 → 50</b></div>
+        <div><small>Armi</small><b>31 → 112</b></div>
+        <div><small>Oggetti</small><b>104 → 229</b></div>
+        <div><small>Ricette</small><b>166 → 344</b></div>
+        <div><small>Creature e abitanti</small><b>42 → 57</b></div>
         <div><small>Blocchi</small><b>258 → 267</b></div>
         <div><small>Armature e gioielli</small><b>56 → 66</b></div>
         <div><small>Imprese</small><b>77 → 92</b></div>
@@ -56,6 +56,7 @@
   <div class="wrap log-layout" id="log">
     <nav class="toc" aria-label="Indice">
       <b>In questa pagina</b>
+      <a href="#sopravvivenza-032">Novità della 0.3.2: sopravvivenza e launcher</a>
       <a href="#braccia">Novità della 0.3.1: braccia nuove</a>
       <a href="#prossima">Novità della 0.3.0</a>
       <a href="#insediamenti">Villaggi, città e dojo ricchi</a>
@@ -88,6 +89,42 @@
           <li><b>Si guarda meglio, per più tempo.</b> Texture scure e morbide, mondo disegnato a tutti i pixel dello schermo, modalità comfort, filtro caldo, modalità foto.</li>
           <li><b>Si guarda anche meglio il sito.</b> Un'isola 3D con il villaggio vero, armeria, bestiario, miniere e un costruttore: tutto dal vero motore del gioco.</li>
           <li><b>Si installa senza Java.</b> Un installer per sistema operativo, con il gioco e tutto il necessario dentro.</li>
+        </ul>
+      </section>
+
+      <section id="sopravvivenza-032">
+        <h2 class="px">Novità della 0.3.2: sopravvivenza e launcher <small>28 ottobre 2026</small></h2>
+        <p class="lead" style="max-width:70ch">Zaino e fabbricazione ora si parlano, gli attrezzi servono davvero, c'è una nuova famiglia di armi, la falce, e il gioco si installa e si apre con un clic.</p>
+        <h3>L'inventario con E</h3>
+        <ul class="plain">
+          <li><b>E apre lo zaino.</b> In Sopravvivenza il tasto E apre direttamente lo zaino, qualunque pagina del libro fosse aperta prima; <b>I</b> apre la scheda dell'eroe. E richiude.</li>
+          <li><b>Sotto lo zaino, cosa puoi fabbricare.</b> Le ricette fattibili adesso con quello che hai (attrezzi per primi, poi armi, armature, costruzione, cucina): un clic e la fabbrichi. In grigio, quelle che aspettano solo un banco vicino: un clic ti porta alla ricetta.</li>
+          <li><b>A cosa serve quello che indichi.</b> Passando il mouse su un oggetto vedi le ricette che lo usano (in verde quelle subito fattibili) e un clic ti porta alla ricetta nell'Artigiano. Se non indichi niente, il promemoria «che attrezzo per che blocco».</li>
+          <li><b>Zaino più comodo.</b> <b>Ordina</b> unisce le pile uguali e mette in fila armi, attrezzi, blocchi, materiali e cibo; il tasto destro divide una pila a metà; Maiusc + clic manda un oggetto tra la barra rapida e le file.</li>
+        </ul>
+        <h3>Attrezzi che si fanno valere</h3>
+        <ul class="plain">
+          <li><b>Il piccone</b> spacca la pietra molte volte più in fretta delle mani (7,5 secondi a mani nude, 1,1 con il piccone di legno, 0,4 con quello di ferro) e, di ferro o meglio, ogni tanto tira fuori un pezzo in più da un minerale (20% con il ferro, 40% con il mithril). Nella descrizione dell'attrezzo trovi i tempi veri e fin dove arriva.</li>
+          <li><b>L'ascia</b> abbatte l'albero intero: con un colpo cadono tutti i tronchi sopra il taglio (fino a 64), e l'ascia si consuma un po' di più. Resta la più veloce su assi, banchi e librerie.</li>
+          <li><b>La zappa</b> prepara il campo con il tasto destro (con il ferro, un quadrato di nove blocchi alla volta), tiene bene foglie e balle di fieno e fa rendere di più i raccolti maturi: un pezzo in più dalla pietra, due dal ferro.</li>
+          <li><b>La pala</b> resta per terra, sabbia, ghiaia, argilla e neve.</li>
+        </ul>
+        <h3>La falce, anche come arma</h3>
+        <ul class="plain">
+          <li><b>Quindici falci</b> (da quella di legno a quelle dei cristalli rari: fiamme, gelo, tuono, vampirismo, ombra): sette famiglie di armi, <b>112</b> in tutto, ognuna con il suo modello 3D, l'icona e la ricetta.</li>
+          <li><b>Come combatte</b>: arco larghissimo (170 gradi), lunga (4,4 blocchi), fino a sei nemici in un colpo, meno forte di una spada contro uno solo. Catena: Falciata, Controfalciata e, per finire, <b>Mietitura Finale</b>, un giro completo. Con l'allenamento si aggiungono la Mezzaluna e la Falce Rovescia, nella nuova scuola «Mietitura della Falce».</li>
+          <li><b>Raccoglie davvero</b>: a ogni colpo falcia l'erba alta, i fiori e i raccolti maturi dell'arco davanti a te (le colture giovani restano a crescere) e si consuma di uno solo per colpo.</li>
+        </ul>
+        <h3>Il launcher</h3>
+        <ul class="plain">
+          <li><b>Un collegamento con un clic.</b> Al primo avvio il gioco chiede se vuoi un collegamento sul desktop (e nel menu Start o delle applicazioni): lo crea per te su Mac, Windows e Linux. Lo trovi anche in Impostazioni.</li>
+          <li><b>Windows e Linux si installano da soli.</b> Il pacchetto di Windows ha <code>Installa Voxel World.vbs</code> (installa, crea i collegamenti e avvia) e il suo disinstallatore; quello di Linux ha <code>./install.sh</code> (menu, desktop e avvio) e <code>./uninstall.sh</code>. I mondi salvati non vengono mai toccati.</li>
+          <li><b>Su Mac</b> il disco ti dice in tre passi cosa fare, e se apri il gioco dal disco di installazione ti avvisa di trascinarlo prima in Applicazioni.</li>
+          <li><b>Ti avvisa degli aggiornamenti.</b> All'avvio il gioco guarda in silenzio, con una richiesta web ordinaria, se sul sito c'è una versione più nuova e, se c'è, mette un pulsante <i>Scarica</i> nel menu. Non installa niente da solo e si spegne in Impostazioni.</li>
+        </ul>
+        <h3>Più robusto</h3>
+        <ul class="plain">
+          <li>Il gioco parte anche con lo schermo spento (o assente): aspetta qualche secondo che ne compaia uno e, se non c'è, apre la finestra comunque, in modo che si veda appena lo schermo torna. Senza un ambiente grafico dà una frase chiara invece di un errore tecnico, e il rapporto di errore suggerisce cosa provare (scheda grafica troppo vecchia, poca memoria, schermo spento).</li>
         </ul>
       </section>
 
@@ -415,7 +452,7 @@
 
 <footer>
   <div class="wrap">
-    <span><b>CBOUQ</b> · Voxel World 0.3.1 beta</span>
+    <span><b>CBOUQ</b> · Voxel World 0.3.2 beta</span>
     <span>Fatto con blocchi, pazienza e notti insonni.</span>
     <a href="#top">↑ Torna su</a>
   </div>
